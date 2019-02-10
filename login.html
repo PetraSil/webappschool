@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sports App - Login</title>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <nav id="navbar_desktop">
+            <ul>
+                <li id="nav_about">
+                    <h5>About</h5>
+                </li>
+                <li id="nav_login">
+                    <h5>Log In</h5>
+                </li>
+                <li id="nav_contact">
+                    <h5>Contact</h5>
+                </li>
+            </ul>
+        </nav>
+        <header id="main_header">
+            <div id="logo_large"></div>
+            <h1 class="north_beat_title">NORTH BEAT</h1>
+            <hr id="title_hr">
+            <h3 class="meta_h3">BY ATHLETES FOR ATHLETES</h3>
+            <p>
+                Join thousands of users on a journey to get in the shape of your life through the beats of music.
+                Nordic
+                Beat was designed to help you motivate yourself to keep pushing for that extra kilometer and never give
+                up!
+            </p>
+
+            <h4 id="call_to_action_h4"><span>SIGN IN <i class="fas fa-arrow-down"></i>REGISTER</span></h4>
+
+        </header>
+
+        <section id="main_login_section_container">
+            <div id="main_login_section">
+                <div id="login_section_left">
+                    <div id="logo_small"></div>
+                </div>
+                <div id="login_section_right">
+                    <header id="login_section_header">
+                        <h2 class="north_beat_title">NORTH BEAT</h2>
+                    </header>
+                    <form>
+                        <label for="user_name"><i class="fas fa-user-circle"></i>NAME</label>
+                        <input id="user_name" type="text" name="name" placeholder="Username" required>
+                        <label for="user_password"><i class="fas fa-unlock-alt"></i>PASSWORD</label>
+                        <input id="user_password" type="password" name="password" placeholder="Password" required>
+                        <br>
+                        <button type="button" id="login_button" onclick="input_check()">SIGN IN</button>
+                        <button type="reset" id="reset">RESET</button>
+                    </form>
+                    <footer id="login_section_footer">
+                        <h4 id="register_h4"><span>Register</span></h4>
+                        <h4 id="help_h4"><span>Help</span></h4>
+                    </footer>
+
+                </div>
+                <div id="alert">
+                    <h2 class="overlay_h2">WARNING!</h2>
+                    <p class="overlay_p">Incorrect login credentials. Please read the login help and follow the
+                        instructions given. New user registration is not in use yet.</p>
+                    <button id="alert_close_button">CLOSE ALERT</button>
+                </div>
+                <div id="help_overlay">
+                    <div id="help_container">
+                        <h2 class="overlay_h2">LOGIN HELP</h2>
+                        <p class="overlay_p">In order to log in, use the login credentials provided below:
+                            <br>
+                            <br><strong>USERNAME:</strong> placeholder
+                            <br><strong>PASSWORD:</strong> placeholder
+                            <br>
+                            <br>
+                            If you have further problems with logging in, please contact the developers for
+                            instructions
+                            (this message is directed to those, who know who the developers are) and help.
+                        </p>
+
+                        <button id="help_close_button">CLOSE HELP</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer id="main_footer">
+            <div id="main_footer_left" class="footer_section">
+                <h3 class="footer_h3">CONTACT INFORMATION</h3>
+                <p class="footer_p"><strong>Phone:</strong> +358 56 876 3546</p>
+                <p class="footer_p"><strong>Address:</strong> Mannerheimintie 108 C 14<br>00250 Helsinki Finland</p>
+                <p class="footer_p" id="email"><a href="mailto:placeholder@placeholder.com?Subject=Greetings!" target="_top">CONTACT
+                        US</a></p>
+                <div id="social_items">
+                    <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.reddit.com" target="_blank"><i class="fab fa-reddit-alien"></i></a>
+                    <a href="https://www.pinterest.com" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            <div id="main_footer_right" class="footer_section">
+                <h3 class="footer_h3" onclick="overlayControl()">COMPANY AND LEGAL</h3>
+                <p class="footer_p" onclick="overlayControl()">Disclaimer</p>
+                <p class="footer_p" onclick="overlayControl()">Privacy Policy</p>
+                <p class="footer_p" onclick="overlayControl()">Legal Information</p>
+                <p class="footer_p" onclick="overlayControl()">Media</p>
+            </div>
+        </footer>
+        <section class="general_overlay">
+            <p>General overlay placeholder for the Company and Legal section</p>
+            <h4 id="close_general_overlay">CLOSE</h4>
+        </section>
+    </main>
+
+    <div id="burger">
+        <div class="menu_line1 menu_lines" id="line1"></div>
+        <div class="menu_line2 menu_lines" id="line2"></div>
+        <div class="menu_line3 menu_lines" id="line3"></div>
+    </div>
+
+    <nav id="overlay_menu">
+        <h2 class="north_beat_title">MENU</h2>
+        <h2 onclick="toAbout(); menuAction()">ABOUT</h2>
+        <h2 onclick="toLogin(); menuAction()">LOG IN</h2>
+        <h2 onclick="toContact(); menuAction()">CONTACT</h2>
+    </nav>
+
+    <script src="login.js"></script>
+
+</body>
+
+</html>
