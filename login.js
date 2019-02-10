@@ -94,8 +94,7 @@ const navbar = document.getElementById("navbar_desktop");
 const scrollBar = () => {
     if (window.pageYOffset > 500) {
         navbar.classList.add("navbar_background");
-    }
-    else {
+    } else {
         navbar.classList.remove("navbar_background");
     }
 };
