@@ -1,3 +1,5 @@
+"use strict";
+
 //Top at load
 window.onbeforeunload = () => {
     window.scrollTo(0, 0);
@@ -92,7 +94,7 @@ document.getElementById("nav_contact").addEventListener("click", toContact);
 const navbar = document.getElementById("navbar_desktop");
 
 const scrollBar = () => {
-    if (window.pageYOffset > 500) {
+    if (window.pageYOffset > 100) {
         navbar.classList.add("navbar_background");
     } else {
         navbar.classList.remove("navbar_background");
