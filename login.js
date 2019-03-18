@@ -1,6 +1,6 @@
 "use strict";
 
-//Top at load
+//TOP AT PAGE LOAD
 window.onbeforeunload = () => {
     window.scrollTo(0, 0);
 }
