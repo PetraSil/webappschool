@@ -196,6 +196,7 @@ li:hover {
     animation-duration: 2s;
     animation-delay: 1s;
     animation-fill-mode: forwards;
+    text-align: center;
 }
 
 #main_header p {

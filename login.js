@@ -104,7 +104,7 @@ const scrollBar = () => {
 window.addEventListener("scroll", scrollBar);
 
 
-// Mobile menu handling
+// MOBILE MENU HANDLING
 let menu_toggle = false;
 
 const menuAction = () => {
