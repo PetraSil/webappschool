@@ -23,7 +23,7 @@ main {
     overflow-x: hidden;
     background-image: url("pexels-photo-1855269.jpeg");
     background-size: cover;
-    background-position: center 5rem;
+    background-position: center 10rem;
 }
 
 @media (max-width: 800px) {
