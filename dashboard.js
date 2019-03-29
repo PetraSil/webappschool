@@ -93,3 +93,14 @@ const toProfile = () => {
 };
 
 document.getElementById("nav_profile").addEventListener("click", toProfile);
+
+
+const toCalendar = () => {
+    document.getElementById("dashboard_calendar").scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "start"
+    })
+};
+
+document.getElementById("nav_calendar").addEventListener("click", toCalendar);
