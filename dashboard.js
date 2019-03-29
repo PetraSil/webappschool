@@ -82,3 +82,14 @@ const toMusic = () => {
 };
 
 document.getElementById("nav_music").addEventListener("click", toMusic);
+
+
+const toProfile = () => {
+    document.getElementById("dashboard_profile").scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "start"
+    })
+};
+
+document.getElementById("nav_profile").addEventListener("click", toProfile);

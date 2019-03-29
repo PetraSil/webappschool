@@ -72,7 +72,7 @@ a {
     color: black;
 }
 
-#dashboard_one {
+#dashboard_profile {
     grid-area: dash_one;
     font-size: 3rem;
     width: 0%;
