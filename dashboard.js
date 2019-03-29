@@ -58,3 +58,27 @@ const menuAction = () => {
 }
 
 document.querySelector("#burger").addEventListener("click", menuAction);
+
+
+/* DASHBOARD SCROLL FUNCTIONS */
+
+const toContact = () => {
+    document.getElementById("main_footer").scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "start"
+    })
+};
+
+document.getElementById("nav_contact").addEventListener("click", toContact);
+
+
+const toMusic = () => {
+    document.getElementById("dashboard_music").scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "start"
+    })
+};
+
+document.getElementById("nav_music").addEventListener("click", toMusic);
