@@ -70,6 +70,7 @@ a {
     animation: none;
     background-color: transparent;
     color: black;
+    text-align: center;
 }
 
 #dashboard_profile {
