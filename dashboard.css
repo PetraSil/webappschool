@@ -10,10 +10,10 @@ body {
 }
 
 body {
-    /*background-image: url("pexels-photo-1855269.jpeg");
+    background-image: url("pexels-photo-1855269.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center;*/
+    background-position: center center;
 }
 
 a {
@@ -28,20 +28,24 @@ a {
     grid-gap: 2rem;
     height: auto;
     min-height: 100vh;
-    width: 100%;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
     grid-template-areas: 
     "dash_header dash_header"
     "dash_one dash_two"
     "dash_three dash_three";
 }
 
-@media (max-width: 700px) {
+@media (max-width: 750px) {
     #dashboard_main_container {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         flex-wrap: wrap;
+        width: 100%;
     }
 }
 
@@ -51,31 +55,47 @@ a {
     align-items: center;
     width: 100%;
     min-width: 20rem;
-    height: auto;
+    height: 100%;
     min-height: 20rem;
-    border: 1px solid orange;
+    animation: dashboard_entry_width 1.5s, dashboard_entry_opacity 2s;
+    animation-fill-mode: forwards;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    font-family: calibri;
+    font-size: 3rem;
 }
 
 #dashboard_header {
     grid-area: dash_header;
-    background-color: orange;
+    animation: none;
+    background-color: transparent;
+    color: black;
 }
 
 #dashboard_one {
     grid-area: dash_one;
-    background-color: red;
-    color: green;
     font-size: 3rem;
+    width: 0%;
 }
 
 #dashboard_two {
     grid-area: dash_two;
-    background-color: blue;
+    width: 0%;
 }
 
 #dashboard_music {
     grid-area: dash_three;
-    background-color: violet;
+    width: 0%;
+}
+
+@keyframes dashboard_entry_width {
+    from {width: 0%}
+    to {width: 100%}
+}
+
+@keyframes dashboard_entry_opacity {
+    from {opacity: 0}
+    to {opacity: 100%}
 }
 
 /* NAVBAR STYLING BEGINS */
