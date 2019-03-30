@@ -24,8 +24,8 @@ a {
 
 #dashboard_main_container {
     display: grid;
-    grid-template-columns: auto;
-    grid-gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
     height: auto;
     min-height: 100vh;
     width: 90%;
@@ -33,9 +33,9 @@ a {
     margin-bottom: 1rem;
     margin-top: 1rem;
     grid-template-areas: 
-    "dash_header dash_header"
-    "dash_one dash_two"
-    "dash_three dash_three";
+    "dash_header dash_header dash_header"
+    "dash_three dash_one dash_two"
+    "dash_three dash_four dash_five";
 }
 
 @media (max-width: 750px) {
@@ -45,7 +45,7 @@ a {
         align-items: center;
         flex-direction: column;
         flex-wrap: wrap;
-        width: 100%;
+        width: 90%;
     }
 }
 
@@ -57,12 +57,18 @@ a {
     min-width: 20rem;
     height: 100%;
     min-height: 20rem;
-    animation: dashboard_entry_width 1.5s, dashboard_entry_opacity 2s;
-    animation-fill-mode: forwards;
+    /*animation: dashboard_entry_width 1.5s, dashboard_entry_opacity 2s;
+    animation-fill-mode: forwards;*/
     background-color: rgba(0, 0, 0, 0.9);
     color: white;
     font-family: calibri;
     font-size: 3rem;
+}
+
+@media (max-width: 750px) {
+    .dashboard_section {
+       margin-bottom: 1rem;
+    }
 }
 
 #dashboard_header {
@@ -76,20 +82,26 @@ a {
 #dashboard_profile {
     grid-area: dash_one;
     font-size: 3rem;
-    width: 0%;
 }
 
 #dashboard_calendar {
     grid-area: dash_two;
-    width: 0%;
 }
 
 #dashboard_music {
     grid-area: dash_three;
-    width: 0%;
+    animation: none;
 }
 
-@keyframes dashboard_entry_width {
+#dashboard_four {
+    grid-area: dash_four;
+}
+
+#dashboard_five {
+    grid-area: dash_five;
+}
+
+/*@keyframes dashboard_entry_width {
     from {width: 0%}
     to {width: 100%}
 }
@@ -97,7 +109,7 @@ a {
 @keyframes dashboard_entry_opacity {
     from {opacity: 0}
     to {opacity: 100%}
-}
+}*/
 
 /* NAVBAR STYLING BEGINS */
 #navbar_desktop {
