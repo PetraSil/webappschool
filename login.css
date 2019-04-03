@@ -156,7 +156,14 @@ li:hover {
     background-color: rgba(255, 255, 255, 1);
     position: relative;
     padding: 1rem;
+    padding-top: 8rem;
     background: linear-gradient(to bottom, white 30%, transparent);
+}
+
+@media (max-width: 800px) {
+    #main_header {
+        padding-top: 0;
+    }
 }
 
 #main_header h1 {
