@@ -32,8 +32,8 @@ document.querySelector("#help_h4").addEventListener("click", open_help);
 document.querySelector("#help_close_button").addEventListener("click", open_help);
 
 
-//LOGIN CHECK
-let alert = false;
+//LOGIN CHECK MADE JUST FOR TESTING, NOT GOING TO BE IN FINAL
+/*let alert = false;
 
 const input_check = () => {
     const username = document.getElementById("user_name").value;
@@ -52,7 +52,7 @@ const input_check = () => {
 };
 
 document.querySelector("#alert_close_button").addEventListener("click", input_check);
-
+*/
 
 //SCROLLS TO SECTIONS
 const toLogin = () => {
@@ -163,3 +163,27 @@ const overlayControl = () => {
 }
 
 document.querySelector("#close_general_overlay").addEventListener("click", overlayControl);
+
+//Register form controls
+let registerOverlay = false;
+
+const registerControl = () => {
+    if (!registerOverlay) {
+        document.querySelector("#register_overlay").style.display = "flex";
+        document.querySelector("#register_overlay").style.height = "100%";
+        setTimeout(function () {
+            document.querySelector("#register_overlay").style.opacity = "1";
+        }, 50);
+        registerOverlay = true;
+    } else {
+        document.querySelector("#register_overlay").style.opacity = "0";
+        setTimeout(function () {
+            document.querySelector("#register_overlay").style.display = "none";
+            document.querySelector("#register_overlay").style.height = "0";
+        }, 500);
+        registerOverlay = false;
+    }
+}
+
+document.querySelector("#register_open").addEventListener("click", registerControl);
+document.querySelector("#register_close").addEventListener("click", registerControl);
