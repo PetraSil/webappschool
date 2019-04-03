@@ -261,15 +261,46 @@ li:hover {
     margin-top: 2rem;
 }
 
+@media (max-width: 800px) {
+    #action_logos {
+        margin-top: 0rem;
+    }
+}
+
 .action_container {
     display: flex;
     justify-content: center;
     align-items: center;
-    bordeR: 1px solid black;
+    flex-direction: column;
     padding: 1rem;
     margin: 1rem;
-    min-width: 10rem;
-    min-height: 10rem;
+    width: 12rem;
+    height: 14rem;
+}
+
+#action_container1 {
+    background-image: url("bike.png");
+}
+
+#action_container2 {
+    background-image: url("bike.png");
+}
+
+#action_container3 {
+    background-image: url("bike.png");
+}
+
+.action_container_logo{
+    background-size: cover;
+    background-position: center center;
+    height: 7rem;
+    width: 7rem;
+}
+
+.action_container_text {
+    text-align: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+    padding-top: 1rem;
 }
 
 /* ACTION LOGOS END */
