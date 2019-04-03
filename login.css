@@ -248,6 +248,33 @@ li:hover {
 
 /* MAIN HEADER ENDS */
 
+
+/* ACTION LOGOS */
+
+#action_logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.action_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bordeR: 1px solid black;
+    padding: 1rem;
+    margin: 1rem;
+    min-width: 10rem;
+    min-height: 10rem;
+}
+
+/* ACTION LOGOS END */
+
+
 /* MAIN SECTION LOGIN */
 #main_login_section_container {
     min-height: 100vh;
