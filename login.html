@@ -31,7 +31,7 @@
         </nav>
         <header id="main_header">
             <div id="logo_large"></div>
-            <h1 class="north_beat_title">NORTH BEAT</h1>
+            <h1 class="north_beat_title">NORDIC BEAT</h1>
             <hr id="title_hr">
             <h3 class="meta_h3">BY ATHLETES FOR ATHLETES</h3>
             <p>
@@ -52,19 +52,19 @@
                 </div>
                 <div id="login_section_right">
                     <header id="login_section_header">
-                        <h2 class="north_beat_title">NORTH BEAT</h2>
+                        <h2 class="north_beat_title">NORDIC BEAT</h2>
                     </header>
-                    <form>
-                        <label for="user_name"><i class="fas fa-user-circle"></i>NAME</label>
-                        <input id="user_name" type="text" name="name" placeholder="Username" required>
+                    <form method="post" action="register.php">
+                        <label for="user_name"><i class="fas fa-user-circle"></i>USERNAME</label>
+                        <input id="user_name" type="text" name="user_name" placeholder="Username" required>
                         <label for="user_password"><i class="fas fa-unlock-alt"></i>PASSWORD</label>
-                        <input id="user_password" type="password" name="password" placeholder="Password" required>
+                        <input id="user_password" type="password" name="user_password" placeholder="Password" required>
                         <br>
-                        <button type="button" id="login_button" onclick="input_check()">SIGN IN</button>
+                        <button type="submit" id="login_button" onclick="">SIGN IN</button>
                         <button type="reset" id="reset">RESET</button>
                     </form>
                     <footer id="login_section_footer">
-                        <h4 id="register_h4"><span>Register</span></h4>
+                        <h4 id="register_open"><span>Register</span></h4>
                         <h4 id="help_h4"><span>Help</span></h4>
                     </footer>
 
@@ -76,8 +76,8 @@
                     <button id="alert_close_button">CLOSE ALERT</button>
                 </div>
                 <!--register under work-->
-                <div id="help_overlay">
-                    <div id="help_container">
+                <section id="help_overlay">
+                    <div class="extra_container">
                         <h2 class="overlay_h2">LOGIN HELP</h2>
                         <p class="overlay_p">In order to log in, use the login credentials provided below:
                             <br>
@@ -92,7 +92,7 @@
 
                         <button id="help_close_button">CLOSE HELP</button>
                     </div>
-                </div>
+                </section>
             </div>
         </section>
         <footer id="main_footer">
@@ -121,6 +121,19 @@
         <section class="general_overlay">
             <p>General overlay placeholder for the Company and Legal section</p>
             <h4 id="close_general_overlay">CLOSE</h4>
+        </section>
+        <section id="register_overlay">
+                <h2 class="overlay_h2">NEW USER REGISTRATION</h2>
+                <form method="post" action="register.php">
+                    <label for="register_name"><i class="fas fa-user-circle"></i>USERNAME</label>
+                    <input id="register_name" type="text" name="register_name" placeholder="Username" required>
+                    <label for="register_password"><i class="fas fa-unlock-alt"></i>PASSWORD</label>
+                    <input id="register_password" type="password" name="register_password" placeholder="Password" required>
+                    <br>
+                    <button type="submit" id="register_button" onclick="">SUBMIT</button>
+                    <button type="reset" id="reset">RESET</button>
+                    <button type="button" id="register_close">CLOSE REGISTRATION</button>
+                </form>
         </section>
     </main>
 
