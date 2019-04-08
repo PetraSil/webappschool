@@ -279,25 +279,41 @@ li:hover {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 1rem;
     margin: 1rem;
+    padding-top: 1rem;
     width: 12rem;
-    height: 14rem;
+    min-height: 14rem;
+    height: auto;
+    background: linear-gradient(to bottom, white 50%, rgba(255, 255, 255, 0.5));
+    box-shadow: 0px 1px 5px rgb(194, 194, 194);
+    border-radius: 3%;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.action_container:hover {
+    box-shadow: 0px 1px 10px rgba(194, 194, 194);
+}
+
+.action_container h3 {
+    margin-top: -0.1rem;
+    margin-bottom: -2rem;
+    padding: 0;
 }
 
 #action_container1 {
-    background-image: url("bike.png");
+    background-image: url("running.png");
 }
 
 #action_container2 {
-    background-image: url("bike.png");
+    background-image: url("time-record.png");
 }
 
 #action_container3 {
-    background-image: url("bike.png");
+    background-image: url("sync.png");
 }
 
-.action_container_logo{
+.action_container_logo {
     background-size: cover;
     background-position: center center;
     height: 7rem;
@@ -307,8 +323,18 @@ li:hover {
 .action_container_text {
     text-align: center;
     font-family: 'Open Sans Condensed', sans-serif;
-    padding-top: 1rem;
+    font-weight: 400;
+    font-size: 1rem;
+    color: black;
+    padding: 1rem;
+    margin-top: 1rem;
+    height: auto;
+    background-color: rgba(85, 85, 85, 0.05);
+    border-radius: 0 0 3% 3%;
+    position: relative;
+    overflow: hidden;
 }
+
 
 /* ACTION LOGOS END */
 

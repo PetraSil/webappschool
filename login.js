@@ -187,3 +187,20 @@ const registerControl = () => {
 
 document.querySelector("#register_open").addEventListener("click", registerControl);
 document.querySelector("#register_close").addEventListener("click", registerControl);
+
+/*
+const action_container_hover = () => {
+    const action_container = document.getElementsByClassName("action_container");
+
+    [].forEach.call(action_container, function(i, j, k) {
+        i.addEventListener("mouseover", function() {
+            [].forEach.call(k, function(i) {
+                if(i !== this) {
+                    i.style.opacity = "0.5";
+                }
+            }, this);
+        });
+    }
+)};
+
+document.querySelector(".action_container").addEventListener("mouseover", action_container_hover);*/
