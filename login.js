@@ -194,19 +194,26 @@ const registerControl = () => {
 document.querySelector("#register_open").addEventListener("click", registerControl);
 document.querySelector("#register_close").addEventListener("click", registerControl);
 
-/*
-const action_container_hover = () => {
-    const action_container = document.getElementsByClassName("action_container");
 
-    [].forEach.call(action_container, function(i, j, k) {
-        i.addEventListener("mouseover", function() {
-            [].forEach.call(k, function(i) {
-                if(i !== this) {
-                    i.style.opacity = "0.5";
-                }
-            }, this);
-        });
+let feature_mouse = false;
+
+const feature_overlay = (target) => {
+    const overlay_first = document.querySelectorAll(".action_container_overlay");
+    const overlay_second = document.querySelectorAll(".action_container_overlay_info");
+
+    if(!feature_mouse) {
+        for(let i = 0; i < overlay_first.length; i++) {
+            if(target == this) { 
+                overlay_first[i].style.opacity = "0";
+            }
+        }
+        feature_mouse = true;
+    } else {
+        for(let j = 0; j < overlay_first.length; j++) {
+            overlay_first[j].style.opacity = "1";
     }
-)};
+        feature_mouse = false;
+    }
+}
 
-document.querySelector(".action_container").addEventListener("mouseover", action_container_hover);*/
+
