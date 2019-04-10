@@ -541,7 +541,8 @@ li:hover {
 }
 
 #register_overlay input[type="text"],
-#register_overlay input[type="password"] {
+#register_overlay input[type="password"],
+#register_overlay input[type="email"] {
     color: rgb(241, 241, 241)
 }
 
@@ -563,7 +564,8 @@ label {
 }
 
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="email"] {
     padding: 0.5rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
@@ -968,7 +970,7 @@ span:hover .fas {
     top: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(22, 22, 22, 0.90);
+    background-color: rgba(22, 22, 22, 0.99);
     display: none;
     flex-direction: column;
     justify-content: center;
