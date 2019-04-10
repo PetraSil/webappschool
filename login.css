@@ -298,7 +298,7 @@ li:hover {
 }
 
 .action_container:hover {
-    box-shadow: 0px 1px 7px rgb(110, 110, 110);
+    box-shadow: 0px 1px 3px rgb(110, 110, 110);
 }
 
 .action_container_overlay {
@@ -347,7 +347,6 @@ li:hover {
     animation-delay: 0.01s;
     animation-duration: 0.8s;
     width: 85%;
-    border-top: 1px solid black;
 }
 
 .action_container_overlay:hover img {
