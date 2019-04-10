@@ -66,7 +66,7 @@ const toLogin = () => {
 document.getElementById("call_to_action_h4").addEventListener("click", toLogin);
 document.getElementById("nav_login").addEventListener("click", toLogin);
 
-const action_container = document.getElementsByClassName("action_container");
+const action_container = document.getElementsByClassName("action_container_button");
 
 for (var i = 0; i < action_container.length; i++) {
     action_container[i].addEventListener('click', toLogin);
