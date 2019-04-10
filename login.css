@@ -309,7 +309,7 @@ li:hover {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.6);
     display: flex;
     justify-content: center; 
     align-items: center;
@@ -318,16 +318,16 @@ li:hover {
 }
 
 .action_container_overlay:hover {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
     border: 1px solid black;
 
 }
 
-.action_container_overlay_img {
-    width: 4rem;
-    height: 4rem;
-    transition: all 0.2s linear;
+.fa-headphones-alt, .fa-user, .fa-heartbeat{
     margin-top: 8rem;
+    font-size: 4rem;
+    color: rgb(66, 66, 66);
+    transition: all 0.2s linear;
 }
 
 .action_container_overlay h3 {
@@ -355,7 +355,17 @@ li:hover {
     transition: all 0.2s ease-in-out;
 }
 
-.action_container_overlay:hover img {
+.action_container_overlay:hover .fa-headphones-alt {
+    opacity: 0;
+    margin-top: -5rem;
+}
+
+.action_container_overlay:hover .fa-user {
+    opacity: 0;
+    margin-top: -5rem;
+}
+
+.action_container_overlay:hover .fa-heartbeat {
     opacity: 0;
     margin-top: -5rem;
 }
@@ -373,7 +383,7 @@ li:hover {
 }
 
 .action_container:nth-of-type(2) {
-    background-image: url("adventure-athlete-athletic-235922.jpg");
+    background-image: url("action-activity-adults-1246953.jpg");
     background-size: cover;
     background-position: center center;
     filter: grayscale(0%);
