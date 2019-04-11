@@ -197,23 +197,23 @@ document.querySelector("#register_close").addEventListener("click", registerCont
 
 let feature_mouse = false;
 
-const feature_overlay = (target) => {
-    const overlay_first = document.querySelectorAll(".action_container_overlay");
-    const overlay_second = document.querySelectorAll(".action_container_overlay_info");
+const feature_overlay = (el) => {
+    const overlay_first = document.getElementsByClassName("action_container");
 
     if(!feature_mouse) {
         for(let i = 0; i < overlay_first.length; i++) {
-            if(target == this) { 
-                overlay_first[i].style.opacity = "0";
-            }
+            if(el != overlay_first[i]) {
+            overlay_first[i].classList.add("grayscale");
         }
-        feature_mouse = true;
+    }
+        feature_mouse = true;    
     } else {
         for(let j = 0; j < overlay_first.length; j++) {
-            overlay_first[j].style.opacity = "1";
+            overlay_first[j].classList.remove("grayscale");
     }
         feature_mouse = false;
     }
 }
+
 
 
