@@ -195,6 +195,8 @@ document.querySelector("#register_open").addEventListener("click", registerContr
 document.querySelector("#register_close").addEventListener("click", registerControl);
 
 
+
+/* FEATURE HOVER */
 let feature_mouse = false;
 
 const feature_overlay = (el) => {
@@ -214,6 +216,5 @@ const feature_overlay = (el) => {
         feature_mouse = false;
     }
 }
-
 
 
