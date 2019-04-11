@@ -527,6 +527,7 @@ li:hover {
 
 #register_overlay form {
     padding: 0;
+    padding-top: 2rem;
 }
 
 #register_overlay label {
@@ -536,14 +537,16 @@ li:hover {
     letter-spacing: 0.1rem;
     font-size: 1.6rem;
     width: 100%;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     color: rgb(226, 226, 226);
 }
 
 #register_overlay input[type="text"],
 #register_overlay input[type="password"],
+#register_overlay input[type="date"],
+#register_overlay input[type="number"],
 #register_overlay input[type="email"] {
-    color: rgb(241, 241, 241)
+    color: rgb(241, 241, 241);
 }
 
 /*REGISTER FORM ENDS */
@@ -565,6 +568,8 @@ label {
 
 input[type="text"],
 input[type="password"],
+input[type="date"],
+input[type="number"],
 input[type="email"] {
     padding: 0.5rem;
     margin-top: 0.5rem;
@@ -640,8 +645,9 @@ h4 span:hover {
     position: fixed;
     top: 0;
     width: 100vw;
-    height: 0;
+    height: auto;
     min-height: 100vh;
+    padding-bottom: 5rem;
     background-color: rgba(22, 22, 22, 0.99);
     display: none;
     flex-direction: column;
@@ -653,6 +659,9 @@ h4 span:hover {
     overflow: auto;
 }
 
+#register_overlay .overlay_h2 {
+    padding-top: 18rem;
+}
 
 #help_overlay {
     position: fixed;
