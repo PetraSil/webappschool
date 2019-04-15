@@ -55,12 +55,20 @@ document.querySelector("#alert_close_button").addEventListener("click", input_ch
 */
 
 //SCROLLS TO SECTIONS
-const toLogin = () => {
+const toLogin = (event) => {
+    if(event == "register_close") {
+    document.getElementById("main_login_section_container").scrollIntoView({
+        behavior: "instant",
+        block: "start",
+        inline: "start"
+    })
+} else {
     document.getElementById("main_login_section_container").scrollIntoView({
         behavior: "smooth",
         block: "start",
         inline: "start"
     })
+}
 };
 
 document.getElementById("call_to_action_h4").addEventListener("click", toLogin);
