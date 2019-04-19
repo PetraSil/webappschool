@@ -108,7 +108,7 @@ document.getElementById("nav_contact").addEventListener("click", toContact);
 const navbar = document.getElementById("navbar_desktop");
 
 const scrollBar = () => {
-    if (window.pageYOffset > 100) {
+    if (window.pageYOffset > 50) {
         navbar.classList.add("navbar_background");
     } else {
         navbar.classList.remove("navbar_background");
