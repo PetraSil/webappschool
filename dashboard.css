@@ -173,13 +173,13 @@ a {
     width: 90%;
 }
 
-#dashboard_profile {
+#dashboard_data {
     grid-area: dash_one;
     font-size: 3rem;
 
 }
 
-#dashboard_calendar {
+#dashboard_profile {
     grid-area: dash_two;
 }
 
