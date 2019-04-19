@@ -130,3 +130,50 @@ const day = () => {
 
 window.addEventListener("load", day);
 
+
+/* BAR CHART */
+let chart = document.getElementById("sportChart").getContext("2d");
+Chart.defaults.global.animation.duration = 5000;
+Chart.defaults.global.defaultFontSize = 13;
+
+const myChart = new Chart(chart, {
+    type: "bar",
+    data: {
+        labels: ["RUNNING", "CAR"],
+        datasets: [
+            {
+                label: "YOUR Co2 EMISSISONS",
+                data: [
+                    120, 1300
+                ],
+                backgroundColor: [
+                    "rgba(127, 255, 0, 0.8)",
+                    "rgba(40, 40, 40, 0.8)"
+                ],
+                borderWidth: 2,
+                borderColor: "rgb(0, 0, 0)"
+            }
+        ]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        },
+        legend: {
+            display: false,
+            labels: {
+                display: false
+            }
+        },
+        title: {
+            display: true,
+            text: ["GRAMS OF CO2 EMISSIONS", "FOR A DISTANCE OF 10KM"],
+            fontSize: 20
+        }
+    }
+}
+)
