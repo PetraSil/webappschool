@@ -27,7 +27,8 @@ a {
     margin-top: 10rem;
     grid-template-areas: 
     "dash_header dash_header data_box"
-    "dash_three dash_one dash_two";
+    "dash_one dash_one dash_two"
+    "dash_one dash_one dash_three";
 }
 
 @media (max-width: 1000px) {
@@ -55,6 +56,7 @@ a {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 3rem;
     box-shadow: 0px 1px 3px rgb(207, 193, 193);
+    position: relative;
 }
 
 @media (max-width: 1000px) {
@@ -70,10 +72,14 @@ a {
     justify-content: center;
     align-items: center;
     color: black;
+
 }
 
 .dashboard_section_bottom {
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: r
 }
 
 #dashboard_h1 {
@@ -127,8 +133,20 @@ a {
     }
 }
 
-.dashboard_section h3 {
-    border-bottom: 1px solid black;
+.dashboard_section_top h3 {
+    z-index: 1;
+    padding: 0.5rem;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.dashboard_section_bottom p {
+    font-size: 1.2rem;
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
 }
 
 #dashboard_header {
@@ -184,7 +202,7 @@ a {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    z-index: 1;
+    z-index: 2;
     transition: all 0.3s ease-in-out;
 }
 
@@ -520,4 +538,3 @@ li:hover {
 span:hover .fas {
     color: rgb(94, 94, 94);
 }
-
