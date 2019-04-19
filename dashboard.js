@@ -104,3 +104,28 @@ const toCalendar = () => {
 };
 
 document.getElementById("nav_calendar").addEventListener("click", toCalendar);
+
+
+/*CURRENT DAY*/
+const day = () => {
+    const target = document.getElementById("weekday");
+    const day = new Date();
+    var weekday = day.getDay()
+    if(weekday == 1) {
+        target.innerHTML = "monday";
+    } else if(weekday == 2) {
+        target.innerHTML = "tuesday";
+    } else if(weekday == 3) {
+        target.innerHTML = "wednesday";
+    } else if(weekday == 4) {
+        target.innerHTML = "thursday";
+    } else if(weekday == 5) {
+        target.innerHTML = "friday";
+    } else if(weekday == 6) {
+        target.innerHTML = "saturday";
+    } else {
+        target.innerHTML = "sunday";
+    }
+}
+
+window.addEventListener("load", day);
