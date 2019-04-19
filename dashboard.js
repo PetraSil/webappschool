@@ -136,7 +136,7 @@ let chart = document.getElementById("sportChart").getContext("2d");
 Chart.defaults.global.animation.duration = 5000;
 Chart.defaults.global.defaultFontSize = 13;
 
-const myChart = new Chart(chart, {
+const co2Chart = new Chart(chart, {
     type: "bar",
     data: {
         labels: ["RUNNING", "CAR"],
