@@ -142,7 +142,7 @@ const myChart = new Chart(chart, {
         labels: ["RUNNING", "CAR"],
         datasets: [
             {
-                label: "YOUR Co2 EMISSISONS",
+                label: "GRAMS OF Co2 EMISSISONS",
                 data: [
                     120, 1300
                 ],
@@ -150,8 +150,8 @@ const myChart = new Chart(chart, {
                     "rgba(127, 255, 0, 0.8)",
                     "rgba(40, 40, 40, 0.8)"
                 ],
-                borderWidth: 2,
-                borderColor: "rgb(0, 0, 0)"
+                borderWidth: 0,
+                borderColor: "rgb(50, 50, 50)"
             }
         ]
     },
@@ -172,8 +172,10 @@ const myChart = new Chart(chart, {
         title: {
             display: true,
             text: ["GRAMS OF CO2 EMISSIONS", "FOR A DISTANCE OF 10KM"],
-            fontSize: 20
-        }
+            fontSize: 20,
+            fontStyle: 400
+        },
+        responsive: false
     }
 }
 )
