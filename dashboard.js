@@ -132,6 +132,8 @@ window.addEventListener("load", day);
 
 
 /* BAR CHART */
+const placeholder_value1 = 120;
+const placeholder_value2 = 1300;
 let chart = document.getElementById("sportChart").getContext("2d");
 Chart.defaults.global.animation.duration = 5000;
 Chart.defaults.global.defaultFontSize = 13;
@@ -144,7 +146,7 @@ const co2Chart = new Chart(chart, {
             {
                 label: "GRAMS OF Co2 EMISSISONS",
                 data: [
-                    120, 1300
+                    placeholder_value1, placeholder_value2
                 ],
                 backgroundColor: [
                     "rgba(127, 255, 0, 0.8)",
