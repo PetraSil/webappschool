@@ -19,6 +19,9 @@
             <li id="nav_about">
                 <h5>Home</h5>
             </li>
+            <li id="nav_about">
+                <h5>Statistics</h5>
+            </li>
             <li id="nav_profile">
                 <h5>Profile</h5>
             </li>
@@ -50,19 +53,31 @@
     <div id="logo_large"></div>
 
     <section id="dashboard_main_container">
-        <div class="dashboard_section" id="dashboard_header">HEADER INFO TITLE ETC.</div>
-        <div class="dashboard_section" id="dashboard_profile">ONE</div>
-        <div class="dashboard_section" id="dashboard_calendar">TWO</div>
-        <div class="dashboard_section" id="dashboard_music">THREE</div>
-        <div class="dashboard_section" id="dashboard_four">FOUR</div>
-        <div class="dashboard_section" id="dashboard_five">FIVE</div>
-
-
+        <div class="dashboard_section" id="dashboard_header"><h1 id="dashboard_h1">HEY THERE,<br>USERNAME!</h1><br>
+        <h2 id="dashboard_h2">What are your plans for this beautiful <span id="weekday"></span>?<br>
+            Heading out for a run or hitting the gym perhaps?<br>
+            Whatever they are, let's save the planet one step at a time!
+        </div>
+        <div class="dashboard_section" id="dashboard_databox">
+            <canvas id="sportChart" width="350px" height=500px"></canvas>
+        </div>
+        <div class="dashboard_section" id="dashboard_data">
+            <div class="dashboard_section_top"><h3>DATA</h3></div>
+            <div class="dashboard_section_bottom"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate sint officia, unde laboriosam eaque iure impedit possimus incidunt voluptas. Aperiam quia delectus cum neque quod! Enim quod repellendus ipsa alias.</p></div>
+        </div>
+        <div class="dashboard_section" id="dashboard_profile">
+            <div class="dashboard_section_top"><h3>PROFILE</h3></div>
+            <div class="dashboard_section_bottom"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate sint officia, unde laboriosam eaque iure impedit possimus incidunt voluptas. Aperiam quia delectus cum neque quod! Enim quod repellendus ipsa alias.</p></div>
+        </div>
+        <div class="dashboard_section" id="dashboard_music">
+            <div class="dashboard_section_top"><h3>MUSIC</h3></div>
+            <div class="dashboard_section_bottom"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate sint officia, unde laboriosam eaque iure impedit possimus incidunt voluptas. Aperiam quia delectus cum neque quod! Enim quod repellendus ipsa alias.</p></div>
+        </div>
     </section>
 
     <footer id="main_footer">
         <div id="main_footer_left" class="footer_section">
-            <h3 class="footer_h3">CONTACT INFORMATION</h3>
+            <h3 class="footer_h3">INTUITIVE INNOVATONS</h3>
             <p class="footer_p"><strong>Phone:</strong> +358 56 876 3546</p>
             <p class="footer_p"><strong>Address:</strong> Mannerheimintie 108 C 14<br>00250 Helsinki Finland</p>
             <p class="footer_p" id="email"><a href="mailto:placeholder@placeholder.com?Subject=Greetings!" target="_top">CONTACT
@@ -87,7 +102,7 @@
         <p>General overlay placeholder for the Company and Legal section</p>
         <h4 id="close_general_overlay">CLOSE</h4>
     </section>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
     <script src="dashboard.js"></script>
 
 </body>

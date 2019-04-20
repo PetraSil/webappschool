@@ -54,7 +54,6 @@ a {
     background-color: transparent;
     width: 100%;
     height: 2rem;
-    ;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -156,7 +155,7 @@ li:hover {
     background-color: rgba(255, 255, 255, 1);
     position: relative;
     padding: 1rem;
-    padding-top: 8rem;
+    padding-top: 5rem;
     margin-bottom: 10rem;
     background: linear-gradient(to bottom, white 30%, transparent);
 }
@@ -299,7 +298,7 @@ li:hover {
 }
 
 .action_container:hover {
-    box-shadow: 0px 1px 3px rgb(110, 110, 110);
+    box-shadow: 0px 1px 3px rgb(182, 182, 182);
 }
 
 .action_container_overlay {
@@ -317,12 +316,12 @@ li:hover {
 }
 
 .action_container_overlay:hover {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.99);
 }
 
 .grayscale {
     filter: grayscale(100%);
-    opacity: 0.1;
+    opacity: 0.05;
     transform: scale(0.95);
 }
 
@@ -551,6 +550,16 @@ li:hover {
     color: rgb(241, 241, 241);
 }
 
+::-webkit-calendar-picker-indicator:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+@-moz-document url-prefix() {
+    #register_close {
+        margin-bottom: 5rem;
+    }
+}
+
 /*REGISTER FORM ENDS */
 
 form {
@@ -581,6 +590,7 @@ input[type="email"] {
     border-bottom: 1px solid rgb(31, 31, 31);
     outline: none;
     background-color: rgba(255, 255, 255, 0.1);
+    font-family: 'Roboto', sans-serif;
 }
 
 button {

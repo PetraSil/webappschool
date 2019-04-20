@@ -9,13 +9,6 @@ body {
     padding: 0;
 }
 
-body {
-    background-image: url("pexels-photo-1855269.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-
 a {
     text-decoration: none;
     color: rgb(231, 231, 231);
@@ -28,17 +21,17 @@ a {
     grid-gap: 1rem;
     height: auto;
     min-height: 100vh;
-    width: 90%;
+    width: 80%;
     margin: auto;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    margin-bottom: 10rem;
+    margin-top: 10rem;
     grid-template-areas: 
-    "dash_header dash_header dash_header"
-    "dash_three dash_one dash_two"
-    "dash_three dash_four dash_five";
+    "dash_header dash_header data_box"
+    "dash_one dash_one dash_two"
+    "dash_one dash_one dash_three";
 }
 
-@media (max-width: 750px) {
+@media (max-width: 1000px) {
     #dashboard_main_container {
         display: flex;
         justify-content: center;
@@ -51,24 +44,117 @@ a {
 
 .dashboard_section {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     width: 100%;
-    min-width: 20rem;
-    height: 100%;
+    min-width: 15rem;
+    height: auto;
     min-height: 20rem;
     /*animation: dashboard_entry_width 1.5s, dashboard_entry_opacity 2s;
     animation-fill-mode: forwards;*/
-    background-color: rgba(0, 0, 0, 0.9);
-    color: white;
-    font-family: calibri;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: rgb(0, 0, 0);
+    font-family: 'Open Sans Condensed', sans-serif;
     font-size: 3rem;
+    box-shadow: 0px 1px 3px rgb(207, 193, 193);
+    position: relative;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 1000px) {
     .dashboard_section {
        margin-bottom: 1rem;
     }
+}
+
+.dashboard_section_top {
+    width: 100%;
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.dashboard_section_bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: r
+}
+
+#dashboard_h1 {
+    font-size: 6rem;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+    letter-spacing: -0.1rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-shadow: 0px 0px 10px rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+
+
+@-moz-document url-prefix() {
+    #dashboard_h1 {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 800px) {
+    #dashboard_h1 {
+        font-size: 4rem;
+    }
+}
+
+#dashboard_h2 {
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+    font-weight: 300;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.1rem;
+    margin-top: 0;
+    text-shadow: 0px 0px 10px rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    margin-top: 0;
+    margin-bottom: 4rem;
+}
+
+#dashboard_databox {
+    grid-area: data_box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 1rem;
+    height: 100%;
+    width: 100%;
+    min-height: 20rem;
+}
+
+@media(max-width: 800px) {
+    #dashboard_databox {
+        margin-bottom: 5rem;
+    }
+}
+
+.dashboard_section_top h3 {
+    z-index: 1;
+    padding: 0.5rem;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: center;
+}
+
+.dashboard_section_bottom p {
+    font-size: 1.2rem;
+    padding: 1.5rem;
+    padding-top: 0;
+    text-align: center;
+    margin-top: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
 }
 
 #dashboard_header {
@@ -77,14 +163,23 @@ a {
     background-color: transparent;
     color: black;
     text-align: center;
+    min-height: 70vh;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none;
+    flex-direction: column;
+    width: 90%;
+}
+
+#dashboard_data {
+    grid-area: dash_one;
+    font-size: 3rem;
+
 }
 
 #dashboard_profile {
-    grid-area: dash_one;
-    font-size: 3rem;
-}
-
-#dashboard_calendar {
     grid-area: dash_two;
 }
 
@@ -93,13 +188,6 @@ a {
     animation: none;
 }
 
-#dashboard_four {
-    grid-area: dash_four;
-}
-
-#dashboard_five {
-    grid-area: dash_five;
-}
 
 /*@keyframes dashboard_entry_width {
     from {width: 0%}
@@ -122,7 +210,7 @@ a {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    z-index: 1;
+    z-index: 2;
     transition: all 0.3s ease-in-out;
 }
 

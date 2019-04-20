@@ -11,7 +11,7 @@ window.onbeforeunload = () => {
 const navbar = document.getElementById("navbar_desktop");
 
 const scrollBar = () => {
-    if (window.pageYOffset > 100) {
+    if (window.pageYOffset > 50) {
         navbar.classList.add("navbar_background");
     } else {
         navbar.classList.remove("navbar_background");
@@ -104,3 +104,80 @@ const toCalendar = () => {
 };
 
 document.getElementById("nav_calendar").addEventListener("click", toCalendar);
+
+
+/*CURRENT DAY*/
+const day = () => {
+    const target = document.getElementById("weekday");
+    const day = new Date();
+    var weekday = day.getDay()
+    if(weekday == 1) {
+        target.innerHTML = "monday";
+    } else if(weekday == 2) {
+        target.innerHTML = "tuesday";
+    } else if(weekday == 3) {
+        target.innerHTML = "wednesday";
+    } else if(weekday == 4) {
+        target.innerHTML = "thursday";
+    } else if(weekday == 5) {
+        target.innerHTML = "friday";
+    } else if(weekday == 6) {
+        target.innerHTML = "saturday";
+    } else {
+        target.innerHTML = "sunday";
+    }
+}
+
+window.addEventListener("load", day);
+
+
+/* BAR CHART */
+const placeholder_value1 = 120;
+const placeholder_value2 = 1300;
+let chart = document.getElementById("sportChart").getContext("2d");
+Chart.defaults.global.animation.duration = 5000;
+Chart.defaults.global.defaultFontSize = 13;
+
+const co2Chart = new Chart(chart, {
+    type: "bar",
+    data: {
+        labels: ["RUNNING", "CAR"],
+        datasets: [
+            {
+                label: "GRAMS OF Co2 EMISSISONS",
+                data: [
+                    placeholder_value1, placeholder_value2
+                ],
+                backgroundColor: [
+                    "rgba(127, 255, 0, 0.8)",
+                    "rgba(40, 40, 40, 0.8)"
+                ],
+                borderWidth: 0,
+                borderColor: "rgb(50, 50, 50)"
+            }
+        ]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        },
+        legend: {
+            display: false,
+            labels: {
+                display: false
+            }
+        },
+        title: {
+            display: true,
+            text: ["GRAMS OF CO2 EMISSIONS", "FOR A DISTANCE OF 10KM"],
+            fontSize: 20,
+            fontStyle: 400
+        },
+        responsive: false
+    }
+}
+)
