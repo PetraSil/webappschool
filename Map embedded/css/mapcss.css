@@ -1,0 +1,43 @@
+#map {
+    height: 400px;
+    width: 100%;
+    overflow: auto;
+    color:black;
+}
+
+#map a {
+    color:black;
+    background-color: white;
+    
+    
+}
+
+#OpenLayers_Control_Attribution_7{
+    position: relative;
+    bottom:0;
+    right:0;
+    padding-top:5px;
+    padding-bottom: 3px;
+    padding-left:10px;
+    padding-right:5px;
+    
+    background-color:white;
+    border-radius: 5px 0 0 0;
+}
+
+#map a:hover {
+    color:orange;
+    background-color: transparent;
+}
+
+#OpenLayers_Control_Zoom_5 a:hover{
+    background-color: white;
+    box-shadow:0px 0px 2px rgb(50,50,50);
+}
+#OpenLayers_Control_Zoom_5 a{
+    transition:all 0.07s linear;
+    margin-bottom:0.2rem;
+    box-shadow:0px 0px 2px darkgray;
+
+}
+
