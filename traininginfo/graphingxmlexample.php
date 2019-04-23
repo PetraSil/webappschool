@@ -16,7 +16,7 @@
 
 <?php
 
-    $mytrackinfo = simplexml_load_file('tvmastolenkki.xml');
+    $mytrackinfo = simplexml_load_file('xml/tvmastolenkki.xml');
     $seed = $mytrackinfo;
     $distance= $mytrackinfo->{'calendar-items'}[0]->exercise->result->distance;
     $avhrdata= $mytrackinfo->{'calendar-items'}[0]->exercise->result->samples->sample[0]->values;
@@ -49,7 +49,7 @@
   
     $averagehr=array_sum($hrArray)/(sizeof($hrArray)-1);
     $avhrfromfile=$mytrackinfo->{'calendar-items'}[0]->exercise->result->{'heart-rate'}->average;
-    $avspeed=
+    
 
     echo "Average hr calculated is $averagehr<br>";
     echo "Average heart-rate from file is $avhrfromfile<br>";
