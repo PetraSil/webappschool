@@ -338,7 +338,7 @@ li:hover {
     margin-bottom: 0.5rem;
 }
 
-.action_container_overlay .overlay_p {
+.overlay_p {
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
@@ -706,6 +706,14 @@ h4 span:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#extra_container_p {
+    color: white;
+    text-align: left;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    line-height: 1.4rem;
 }
 
 .overlay_h2 {
