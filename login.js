@@ -5,7 +5,6 @@ window.onbeforeunload = () => {
     window.scrollTo(0, 0);
 }
 
-
 //HELP OVERLAY CONTROLS
 let overlay = false;
 const ol = document.getElementById("help_overlay");
@@ -30,29 +29,6 @@ const open_help = () => {
 
 document.querySelector("#help_h4").addEventListener("click", open_help);
 document.querySelector("#help_close_button").addEventListener("click", open_help);
-
-
-//LOGIN CHECK MADE JUST FOR TESTING, NOT GOING TO BE IN FINAL
-/*let alert = false;
-
-const input_check = () => {
-    const username = document.getElementById("user_name").value;
-    const password = document.getElementById("user_password").value;
-    console.log(username);
-    console.log(password);
-    if (username == "placeholder" && password == "placeholder") {
-        window.open("https://www.google.com", "_self");
-    } else if (alert) {
-        document.getElementById("alert").style.display = "none";
-        alert = false;
-    } else {
-        document.getElementById("alert").style.display = "flex";
-        alert = true;
-    }
-};
-
-document.querySelector("#alert_close_button").addEventListener("click", input_check);
-*/
 
 //SCROLLS TO SECTIONS
 const toLogin = (event) => {
@@ -80,8 +56,6 @@ for (var i = 0; i < action_container.length; i++) {
     action_container[i].addEventListener('click', toLogin);
 }
 
-
-
 const toAbout = () => {
     document.getElementById("main_header").scrollIntoView({
         behavior: "smooth",
@@ -92,7 +66,6 @@ const toAbout = () => {
 
 document.getElementById("nav_about").addEventListener("click", toAbout);
 
-
 const toContact = () => {
     document.getElementById("main_footer").scrollIntoView({
         behavior: "smooth",
@@ -102,7 +75,6 @@ const toContact = () => {
 };
 
 document.getElementById("nav_contact").addEventListener("click", toContact);
-
 
 //NAVBAR BACKGROUND HANDLING
 const navbar = document.getElementById("navbar_desktop");
@@ -116,7 +88,6 @@ const scrollBar = () => {
 };
 
 window.addEventListener("scroll", scrollBar);
-
 
 // MOBILE MENU HANDLING
 let menu_toggle = false;
@@ -155,7 +126,14 @@ const menuAction = () => {
 }
 
 document.querySelector("#burger").addEventListener("click", menuAction);
+document.querySelector("#overlay_menu_about").addEventListener("click", toAbout);
+document.querySelector("#overlay_menu_log").addEventListener("click", toLogin);
+document.querySelector("#overlay_menu_contact").addEventListener("click", toContact);
+const overlay_h2 = document.querySelectorAll(".overlay_menu_h2");
 
+for(let i = 0; i < overlay_h2.length; i++) {
+    overlay_h2[i].addEventListener("click", menuAction);
+}
 
 //General overlay controls
 let generalOverlay = false;
@@ -177,6 +155,12 @@ const overlayControl = () => {
 }
 
 document.querySelector("#close_general_overlay").addEventListener("click", overlayControl);
+document.querySelector("#tos").addEventListener("click", overlayControl);
+const footer_p_overlay = document.querySelectorAll(".footer_p");
+
+for(let i = 0; i < footer_p_overlay.length; i++) {
+    footer_p_overlay[i].addEventListener("click", overlayControl);
+}
 
 //Register form controls
 let registerOverlay = false;
@@ -201,8 +185,6 @@ const registerControl = () => {
 
 document.querySelector("#register_open").addEventListener("click", registerControl);
 document.querySelector("#register_close").addEventListener("click", registerControl);
-
-
 
 /* FEATURE HOVER */
 let feature_mouse = false;
