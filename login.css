@@ -280,7 +280,7 @@ li:hover {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 2rem;
+    margin: 1rem;
     padding-top: 1rem;
     width: 15rem;
     min-height: 15rem;
@@ -311,7 +311,7 @@ li:hover {
 }
 
 .action_container_overlay:hover {
-    background-color: rgba(255, 255, 255, 0.99);
+    background-color: rgba(0, 0, 0, 0.95);
 }
 
 .grayscale {
@@ -369,7 +369,23 @@ li:hover {
 
 .action_container_overlay:hover .overlay_p {
     display: block;
-    color: rgba(70, 70, 70, 1)
+    color: rgb(255, 255, 255)
+}
+
+.action_container_overlay:hover h3 {
+    color: rgb(255, 255, 255);
+}
+
+.action_container_overlay button {
+    background-color: rgb(233, 233, 233);
+    color: rgb(32, 32, 32);
+    border: 1px solid transparent;
+}
+
+.action_container_overlay button:hover {
+    background-color: rgb(32, 32, 32);
+    color: rgb(243, 243, 243);
+    border: 1px solid rgb(247, 247, 247);
 }
 
 .action_container:nth-of-type(1) {
