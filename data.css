@@ -50,7 +50,7 @@ a {
 
 .navbar_background {
     background-color: rgba(255, 255, 255, 0.95) !important;
-    box-shadow: 0 0 10px rgb(197, 197, 197);
+    box-shadow: 0 0 3px rgb(197, 197, 197);
 }
 
 ul {
@@ -133,7 +133,6 @@ li:hover {
 }
 
 #data_graphs {
-    background-color: tomato;
 }
 
 
