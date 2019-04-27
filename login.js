@@ -56,6 +56,7 @@ for (var i = 0; i < action_container.length; i++) {
     action_container[i].addEventListener('click', toLogin);
 }
 
+
 const toAbout = () => {
     document.getElementById("main_header").scrollIntoView({
         behavior: "smooth",
@@ -159,8 +160,10 @@ document.querySelector("#tos").addEventListener("click", overlayControl);
 const footer_p_overlay = document.querySelectorAll(".footer_p");
 
 for(let i = 0; i < footer_p_overlay.length; i++) {
-    footer_p_overlay[i].addEventListener("click", overlayControl);
-}
+    if(event.target != "email") {
+        footer_p_overlay[i].addEventListener("click", overlayControl);
+    }
+};
 
 //Register form controls
 let registerOverlay = false;
@@ -206,5 +209,3 @@ const feature_overlay = (el) => {
         feature_mouse = false;
     }
 }
-
-

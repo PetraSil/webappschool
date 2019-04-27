@@ -201,6 +201,54 @@ li:hover {
     background-position: center center;
 }
 
+/* SITEMAP OVERLAY */
+#site_map_overlay {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    position: fixed;
+    padding: 2rem;
+    right: 0;
+    top: 2rem;
+    background-color: rgb(26, 26, 26);
+    width: 0;
+    min-height: 100vh;
+    height: 100%;
+    overflow-x: hidden;
+    z-index: 1;
+    box-shadow: 0px 0px 3px rgb(56, 56, 56);
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+}
+
+#site_map_overlay hr {
+    width: 100%;
+    height: 0.1rem;
+    border: none;
+    border-bottom: 1px solid white;
+}
+
+.sitemap_h2 {
+    color: white;
+    font-family: 'Open Sans Condensed', sans-serif;
+    transition: all 0.3s ease-in-out;
+    margin-top: 2rem;
+    margin-bottom: 0;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    font-size: 1.5rem;
+}
+
+.sitemap_h3 {
+    color: white;
+    font-family: 'Open Sans Condensed', sans-serif;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    font-weight: 200;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
 /* LARGE TOP LOGO STYLING BEGINS */
 @media (min-width: 801px) {
     #logo_large {
@@ -428,48 +476,80 @@ li:hover {
     width: 15rem;
     line-height: 1.5rem;
     transition: all 0.3s ease-in-out;
+    overflow: hidden;
 }
 
-#email {
+#email_sitemap {
+    position: absolute;
+    bottom: 7.5rem;
+}
+
+@media(max-height: 600px) {
+    #email_sitemap {
+        position: initial;
+    }
+}
+
+#email, #email_sitemap {
     color: rgb(231, 231, 231);
     border: 1px solid rgb(231, 231, 231);
     cursor: pointer;
-    padding: 0.8rem;
     font-weight: 400;
     margin-top: 1rem;
     text-align: center;
     transition: all 0.3s ease-in-out;
-    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
 }
 
-#email a {
+#email a, #email_sitemap a {
     font-family: 'Open Sans Condensed', sans-serif;
     letter-spacing: 0.1rem;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
-#email:hover {
+#email:hover, #email_sitemap:hover {
     background-color: rgb(231, 231, 231);
 }
 
-#email:hover a {
+#email:hover a, #email_sitemap:hover a {
     color: rgb(32, 32, 32);
 }
 
-#social_items {
+#social_items, #social_items_sitemap {
     width: 15rem;
     margin-top: 1rem;
     border-top: 1px solid rgb(73, 73, 73);
     padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+
+}
+
+#social_items_sitemap {
+    position: absolute;
+    bottom: 4rem;
+}
+
+@media(max-height: 600px) {
+    #social_items_sitemap {
+        position: initial;
+    }
 }
 
 .fab {
     color: white;
-    font-size: 1.3rem;
-    margin-right: 1.3rem;
+    font-size: 1.4rem;
+    margin-right: 1.5rem;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
-
 .fab:hover {
     color: rgb(199, 199, 199);
 }

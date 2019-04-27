@@ -16,23 +16,20 @@
 
     <nav id="navbar_desktop">
         <ul>
-            <li id="nav_about">
-                <h5>Home</h5>
-            </li>
-            <li id="nav_about">
-                <h5>Statistics</h5>
-            </li>
-            <li id="nav_profile">
-                <h5>Profile</h5>
-            </li>
-            <li id="nav_calendar">
-                <h5>Calendar</h5>
-            </li>
             <li id="nav_music">
                 <h5>Music</h5>
             </li>
             <li id="nav_contact">
                 <h5>Contact</h5>
+            </li>
+            <li id="nav_home">
+                <h5>Home</h5>
+            </li>
+            <li id="nav_logout">
+                <h5>Logout</h5>
+            </li>
+            <li id="nav_site">
+                <h5 id="nav_site_h5">Menu</h5>
             </li>
         </ul>
     </nav>
@@ -45,15 +42,40 @@
 
     <nav id="overlay_menu">
         <h2 class="north_beat_title">MENU</h2>
-        <h2 onclick="toAbout(); menuAction()">ABOUT</h2>
-        <h2 onclick="toLogin(); menuAction()">LOG IN</h2>
-        <h2 onclick="toContact(); menuAction()">CONTACT</h2>
+        <h2 class="overlay_menu_h2" id="overlay_menu_music">MUSIC</h2>
+        <h2 class="overlay_menu_h2" id="overlay_menu_contact">CONTACT</h2>
+        <h2 class="overlay_menu_h2" id="overlay_menu_site">SITEMAP</h2>
+        <h2 class="overlay_menu_h2" id="overlay_menu_home">HOME</h2>
+        <h2>LOGOUT</h2>
     </nav>
 
     <div id="logo_large"></div>
 
+    <nav id="site_map_overlay">
+        <h2 class="sitemap_h2">MENU</h2>
+        <hr>
+        <h3 class="sitemap_h3">Dashboard</h2>
+        <h3 class="sitemap_h3">Contact</h2>
+        <h3 class="sitemap_h3">Home</h2>
+            
+        <h2 class="sitemap_h2">MENU</h2>
+        <hr>
+        <h3 class="sitemap_h3">Dashboard</h2>
+        <h3 class="sitemap_h3">Contact</h2>
+        <h3 class="sitemap_h3">Home</h2>  
 
-    <section id="data_main_container">
+        <p class="footer_p" id="email_sitemap"><a href="mailto:placeholder@placeholder.com?Subject=Greetings!" target="_top">CONTACT US</a></p>
+        <div id="social_items_sitemap">
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.reddit.com" target="_blank"><i class="fab fa-reddit-alien"></i></a>
+            <a href="https://www.pinterest.com" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+            <a href="https://www.github.com" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </nav>
+
+    <section id="music_main_container">
         <div id="music_top"><h1>MUSIC</h1></div>
         <div id="music_bottom">
             <div class="music_section" id="music1">
@@ -89,14 +111,15 @@
                 <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.reddit.com" target="_blank"><i class="fab fa-reddit-alien"></i></a>
                 <a href="https://www.pinterest.com" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+                <a href="https://www.github.com" target="_blank"><i class="fab fa-github"></i></a>
             </div>
         </div>
         <div id="main_footer_right" class="footer_section">
             <h3 class="footer_h3">COMPANY AND LEGAL</h3>
-            <p class="footer_p" onclick="overlayControl()">Disclaimer</p>
-            <p class="footer_p" onclick="overlayControl()">Privacy Policy</p>
-            <p class="footer_p" onclick="overlayControl()">Legal Information</p>
-            <p class="footer_p" onclick="overlayControl()">Media</p>
+            <p class="footer_p">Disclaimer</p>
+            <p class="footer_p">Privacy Policy</p>
+            <p class="footer_p">Legal Information</p>
+            <p class="footer_p">Media</p>
         </div>
     </footer>
     <section class="general_overlay">

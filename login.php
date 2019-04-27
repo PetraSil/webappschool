@@ -1,3 +1,106 @@
+<!-- ALL PHP WILL BE IN SEPERATE FILES EVENTUALLY -->
+
+<?php
+session_start();
+if(isset($_POST["user_name"]))
+$_SESSION["session_username"] = $_POST["user_name"];
+
+include_once "db.php";
+/* CONNECT TO SERVER */
+if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === "off") {
+    $location = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    header('HTTP/1.1 301 Moved Permanently');
+    header('Location: ' . $location);
+    exit;
+
+/*SESSION WORK */
+}
+
+/*SESSION NAME TEST */
+
+/* LOGIN FORM PHP */
+
+$username_login = $_POST["user_name"];
+$password_login = $_POST["user_password"]; 
+  /*------------------------------------------------------------*/
+  $sql_check_username = "SELECT * FROM user_profile WHERE username = '$username_login';"; 
+  $result = mysqli_query($connection, $sql_check_username); 
+  $roww = mysqli_fetch_assoc($result);
+  $pass_form = $_POST["user_password"];
+  $password_hashed_from_database = $roww['hashed_password'];
+  $compare_password = password_verify($pass_form, $password_hashed_from_database); 
+  if (($roww['username'] == $username_login) && ($compare_password == 1)) {  
+
+      $URL = "dashboard.php";
+      if( headers_sent() ) { 
+          echo("<script>location.href='$URL'</script>"); 
+            } else { 
+                header("Location: $URL"); 
+            }
+      exit; 
+    } else { 
+    } 
+
+    /* REGISTER FORM */
+                        $date_of_birth_check = $_POST["register_age"]; 
+                        $date1 = new DateTime($date_of_birth_check);
+                        $date2 = new DateTime("today");
+                        $date3 = new DateTime("today");
+                        $date4 = $date3->modify("-124 years");
+
+                        //IF checking the validity of the date of the birth
+                        if ($date1 < $date2 && $date1 > $date4) 
+                            {echo "Your date of birth was entered succesfully"; 
+                            
+                            $username = mysqli_real_escape_string($connection, $_POST["register_name"]);
+                            $password = mysqli_real_escape_string($connection, $_POST["register_password"]);
+                            $email = mysqli_real_escape_string($connection, $_POST["register_email"]);
+                            $date_of_birth = mysqli_real_escape_string($connection, $_POST["register_age"]);
+                            $weight = mysqli_real_escape_string($connection, $_POST["register_weight"]);
+                            $height = mysqli_real_escape_string($connection, $_POST["register_height"]);
+                            $reenterpassword = mysqli_real_escape_string($connection, $_POST["register_password_re"]);
+                            echo ("---------------------------------------------------------------------------------------------------- "  ."<br><br>");
+                            echo "SALASANAN JA UUDELLEEN SYÖTETYN SALASANAN VERTAILEMINEN:";
+                            echo "<br><br>";
+                                /*At first check if password == reentered password */
+                                /*then check if a username already exist */
+                            if ($password == $reenterpassword) {
+                                
+                                $sql_check_username = "SELECT * FROM user_profile WHERE username = '$username';"; /*users;";  ensimmäinen ; on SQLlle ja toinen ; on PHPlle */
+                                $result2 = mysqli_query($connection, $sql_check_username); /*talletetaan $result2:een haun tuloksena löytyneet rivit */
+                                $row2 =mysqli_num_rows($result2); /*$row2:een tallentuu haun tulosen rivien lukumäärä */
+                                
+                                if ($row2 > 0) {
+                                    echo "The username (" .$username .") is already in use!";
+                                }
+                                /* Hashing */
+                                else { 
+                                    $inputtohashing = $_POST["register_password"];
+                                    $hashed_password = password_hash($inputtohashing, PASSWORD_DEFAULT);
+                                    /*Verify tämä väli kuuluu login kohtaan */
+                                    $compare_password = password_verify($inputtohashing, $hashed_password); /*password comparison just for checking */
+                                    /*Verify tämä väli kuuluu login kohtaan */
+                     /* echo "Password and re-entered password are same"; */
+                        echo "<br><br>";
+                    /*-SYÖTETÄÄN REKISTERÖINTIKENTÄN TIEDOT TIETOKANTAAN-----------*/
+                    $sql_insert = "INSERT INTO user_profile (username, password, email, date_of_birth, weight, height, hashed_password ) VALUES ('$username', '$password', '$email', '$date_of_birth', '$weight', '$height', '$hashed_password');";
+                    $result = mysqli_query($connection, $sql_insert);
+                  
+                     /*------------------------------------------------------------*/
+                    $sql = "SELECT * FROM user_profile WHERE username = '$username';"; 
+                    $result1 = mysqli_query($connection, $sql);
+                    $roww = mysqli_fetch_assoc($result1);
+                        
+                  } /* usernamen vertaamisen if-lauseen else päättyy */
+                } /* salasanan vertaamisen if-lause päättyy tähän ja sen else alkaa */
+                    else {
+                        echo "Password and re-entered password are not same";
+                        }
+                } 
+                    else {
+                        }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -171,9 +274,9 @@
                     <input id="register_email" type="email" name="register_email" placeholder="placeholder@mail.com" required>
                     <label for="register_age"><i class="far fa-clock"></i> DATE OF BIRTH</label>
                     <input id="register_age" type="date" name="register_age" required>
-                    <label for="register_weight"><i class="fas fa-weight"></i>WEIGHT (KG)</label>
+                    <label for="register_weight"><i class="fas fa-weight"></i>WEIGHT (kg)</label>
                     <input id="register_weight" type="number" step="0.1" min="0" max="500" name="register_weight" placeholder="80.0" required>
-                    <label for="register_height"><i class="fas fa-ruler-vertical"></i>HEIGHT (CM)</label>
+                    <label for="register_height"><i class="fas fa-ruler-vertical"></i>HEIGHT (cm)</label>
                     <input id="register_height" type="number" step="0.1" min="0" max="300" name="register_height" placeholder="180.0" required>
                     <input id="permission_box" type="checkbox" required><span id="tos">I accept the terms of service.</span>
                     <br>
