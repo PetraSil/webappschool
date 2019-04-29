@@ -38,8 +38,9 @@ $password_login = $_POST["user_password"];
                 header("Location: $URL"); 
             }
       exit; 
-    } else { 
-    } 
+    } else {
+         
+    }
 
     /* REGISTER FORM */
                         $date_of_birth_check = $_POST["register_age"]; 
@@ -49,8 +50,7 @@ $password_login = $_POST["user_password"];
                         $date4 = $date3->modify("-124 years");
 
                         //IF checking the validity of the date of the birth
-                        if ($date1 < $date2 && $date1 > $date4) 
-                            {echo "Your date of birth was entered succesfully"; 
+                        if ($date1 < $date2 && $date1 > $date4) {
                             
                             $username = mysqli_real_escape_string($connection, $_POST["register_name"]);
                             $password = mysqli_real_escape_string($connection, $_POST["register_password"]);
@@ -59,9 +59,6 @@ $password_login = $_POST["user_password"];
                             $weight = mysqli_real_escape_string($connection, $_POST["register_weight"]);
                             $height = mysqli_real_escape_string($connection, $_POST["register_height"]);
                             $reenterpassword = mysqli_real_escape_string($connection, $_POST["register_password_re"]);
-                            echo ("---------------------------------------------------------------------------------------------------- "  ."<br><br>");
-                            echo "SALASANAN JA UUDELLEEN SYÖTETYN SALASANAN VERTAILEMINEN:";
-                            echo "<br><br>";
                                 /*At first check if password == reentered password */
                                 /*then check if a username already exist */
                             if ($password == $reenterpassword) {
@@ -71,7 +68,6 @@ $password_login = $_POST["user_password"];
                                 $row2 =mysqli_num_rows($result2); /*$row2:een tallentuu haun tulosen rivien lukumäärä */
                                 
                                 if ($row2 > 0) {
-                                    echo "The username (" .$username .") is already in use!";
                                 }
                                 /* Hashing */
                                 else { 
@@ -81,7 +77,6 @@ $password_login = $_POST["user_password"];
                                     $compare_password = password_verify($inputtohashing, $hashed_password); /*password comparison just for checking */
                                     /*Verify tämä väli kuuluu login kohtaan */
                      /* echo "Password and re-entered password are same"; */
-                        echo "<br><br>";
                     /*-SYÖTETÄÄN REKISTERÖINTIKENTÄN TIEDOT TIETOKANTAAN-----------*/
                     $sql_insert = "INSERT INTO user_profile (username, password, email, date_of_birth, weight, height, hashed_password ) VALUES ('$username', '$password', '$email', '$date_of_birth', '$weight', '$height', '$hashed_password');";
                     $result = mysqli_query($connection, $sql_insert);
@@ -94,7 +89,6 @@ $password_login = $_POST["user_password"];
                   } /* usernamen vertaamisen if-lauseen else päättyy */
                 } /* salasanan vertaamisen if-lause päättyy tähän ja sen else alkaa */
                     else {
-                        echo "Password and re-entered password are not same";
                         }
                 } 
                     else {
@@ -148,7 +142,7 @@ $password_login = $_POST["user_password"];
                     <div class="action_container_overlay">
                         <i class="fas fa-headphones-alt"></i>
                         <h3 class="action_container_overlay_h3">MUSIC</h3>
-                        <p class="overlay_p">Lorem ipsum, dolor sit amet consectetur adipisicing elit. And then some more text to fill this space a bit</p>
+                        <p class="overlay_p">Integrate your favourite music, own or through Spotify, to seamlessly guide your workouts.</p>
                         <button type="button" class="action_container_button">SIGN IN</button>
                     </div>
                 </div>
@@ -156,7 +150,7 @@ $password_login = $_POST["user_password"];
                     <div class="action_container_overlay">
                         <i class="fas fa-user"></i>
                         <h3 class="action_container_overlay_h3">SOCIAL</h3>
-                        <p class="overlay_p">Lorem ipsum, dolor sit amet consectetur adipisicing elit. And then some more text to fill this space a bit</p>
+                        <p class="overlay_p">"Share your workout and challenge your friends to compete who can hit it the fastest, longest or hardest."</p>
                         <button type="button" class="action_container_button">SIGN IN</button>
                     </div>
                 </div>
@@ -164,7 +158,7 @@ $password_login = $_POST["user_password"];
                     <div class="action_container_overlay">
                         <i class="fas fa-heartbeat"></i>
                         <h3 class="action_container_overlay_h3">DATA</h3>
-                        <p class="overlay_p">Lorem ipsum, dolor sit amet consectetur adipisicing elit. And then some more text to fill this space a bit</p>
+                        <p class="overlay_p">Study the depths of your workouts through detailed analysis and let the application be your coach.</p>
                         <button type="button" class="action_container_button">SIGN IN</button>
                     </div>
                 </div>
@@ -172,6 +166,8 @@ $password_login = $_POST["user_password"];
             <h4 id="call_to_action_h4"><span>SIGN IN <i class="fas fa-arrow-down"></i>REGISTER</span></h4>
 
         </header>
+
+        <div id="login_alert">TEST</div>
 
         <section id="main_login_section_container">
             <div id="main_login_section">
@@ -182,7 +178,8 @@ $password_login = $_POST["user_password"];
                     <header id="login_section_header">
                         <h2 class="north_beat_title">NORTH BEAT</h2>
                     </header>
-                    <form method="post" action="" autocomplete="off">
+                    <iframe name="target" id="target" width="0px" height="0px" frameborder="0"></iframe>
+                    <form method="post" action="" target="" autocomplete="off">
                         <label for="user_name"><i class="fas fa-user-circle"></i>USERNAME</label>
                         <input id="user_name" type="text" name="user_name" placeholder="Username" required>
                         <label for="user_password"><i class="fas fa-unlock-alt"></i>PASSWORD</label>
@@ -214,8 +211,7 @@ $password_login = $_POST["user_password"];
                             <br>
                             <br>
                             If you have further problems with logging in, please contact the developers for
-                            instructions
-                            (this message is directed to those, who know who the developers are) and help.
+                            instructions and help.
                         </p>
 
                         <button id="help_close_button">CLOSE HELP</button>
@@ -226,9 +222,9 @@ $password_login = $_POST["user_password"];
         <footer id="main_footer">
             <div id="main_footer_left" class="footer_section">
                 <h3 class="footer_h3">INTUITIVE INNOVATIONS</h3>
-                <p class="footer_p"><strong>Phone:</strong> +358 56 876 3546</p>
-                <p class="footer_p"><strong>Address:</strong> Mannerheimintie 108 C 14<br>00250 Helsinki Finland</p>
-                <p class="footer_p" id="email"><a href="mailto:placeholder@placeholder.com?Subject=Greetings!" target="_top">CONTACT
+                <p class="footer_contact_p"><strong>Phone:</strong> +358 56 876 3546</p>
+                <p class="footer_contact_p"><strong>Address:</strong> Mannerheimintie 108 C 14<br>00250 Helsinki Finland</p>
+                <p class="email_p" id="email"><a href="mailto:placeholder@placeholder.com?Subject=Greetings!" target="_top">CONTACT
                         US</a></p>
                 <div id="social_items">
                     <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
@@ -299,7 +295,7 @@ $password_login = $_POST["user_password"];
         <h2 class="overlay_menu_h2" id="overlay_menu_log">LOG IN</h2>
         <h2 class="overlay_menu_h2" id="overlay_menu_contact">CONTACT</h2>
     </nav>
-
+    
     <script src="login.js"></script>
 
 </body>

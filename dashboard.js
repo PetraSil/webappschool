@@ -41,12 +41,28 @@ const toDashboard = () => {
 };
 
 document.getElementById("nav_dashboard").addEventListener("click", toDashboard);
+document.getElementById("menu_dashboard").addEventListener("click", toDashboard);
 
 const toHome = () => {
-    window.location.href = "login.html";
+    window.location.href = "login.php";
 };
 
 document.getElementById("nav_home").addEventListener("click", toHome);
+document.getElementById("menu_home").addEventListener("click", toHome);
+
+const toMusic = () => {
+    window.location.href = "music.php";
+};
+
+document.getElementById("dashboard_music").addEventListener("click", toMusic);
+document.getElementById("menu_music").addEventListener("click", toMusic);
+
+const toData = () => {
+    window.location.href = "data.php";
+};
+
+document.getElementById("dashboard_data").addEventListener("click", toData);
+document.getElementById("menu_data").addEventListener("click", toData);
 
 // Mobile menu handling
 let menu_toggle = false;
@@ -182,7 +198,26 @@ document.querySelector("#close_general_overlay").addEventListener("click", overl
 const footer_p_overlay = document.querySelectorAll(".footer_p");
 
 for(let i = 0; i < footer_p_overlay.length; i++) {
-    if(event.target != "email") {
         footer_p_overlay[i].addEventListener("click", overlayControl);
-    }
 };
+
+/*ALERT*/
+let alert = false;
+
+const alertHandle = () => {
+    if(!alert) {
+        document.getElementById("alert").style.display = "flex";
+        alert = true;
+    } else {
+        document.getElementById("alert").style.display = "none";
+        alert = false;
+    }
+}
+
+document.getElementById("alert_button").addEventListener("click", alertHandle);
+document.getElementById("dashboard_profile").addEventListener("click", alertHandle);
+document.getElementById("menu_application").addEventListener("click", alertHandle);
+document.getElementById("menu_personal").addEventListener("click", alertHandle);
+document.getElementById("nav_logout").addEventListener("click", alertHandle);
+document.getElementById("overlay_menu_logout").addEventListener("click", alertHandle);
+

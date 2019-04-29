@@ -1,4 +1,8 @@
-
+<?php
+session_start();
+if(isset($_POST["user_name"]))
+$_SESSION["session_username"] = $_POST["user_name"];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,8 +10,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>North Beat - Music</title>
-    <link rel="stylesheet" href="music.css">
+    <title>North Beat - Data</title>
+    <link rel="stylesheet" href="data.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
         crossorigin="anonymous">
@@ -18,8 +22,8 @@
 
     <nav id="navbar_desktop">
         <ul>
-            <li id="nav_music">
-                <h5>Music</h5>
+            <li id="nav_data">
+                <h5>Data</h5>
             </li>
             <li id="nav_contact">
                 <h5>Contact</h5>
@@ -44,11 +48,11 @@
 
     <nav id="overlay_menu">
         <h2 class="north_beat_title">MENU</h2>
-        <h2 class="overlay_menu_h2" id="overlay_menu_music">MUSIC</h2>
+        <h2 class="overlay_menu_h2" id="overlay_menu_data">DATA</h2>
         <h2 class="overlay_menu_h2" id="overlay_menu_contact">CONTACT</h2>
         <h2 class="overlay_menu_h2" id="overlay_menu_site">SITEMAP</h2>
         <h2 class="overlay_menu_h2" id="overlay_menu_home">HOME</h2>
-        <h2>LOGOUT</h2>
+        <h2 class="overlay_menu_h2" id="overlay_menu_logout">LOGOUT</h2>
     </nav>
 
     <div id="logo_large"></div>
@@ -79,22 +83,22 @@
     </nav>
 
     <section id="music_main_container">
-        <div id="music_top"><h1>USER MUSIC</h1></div>
+        <div id="music_top"><h1>USER DATA</h1></div>
         <div id="music_bottom">
             <div class="music_section" id="music1">
                 <div class="music_meta_section" id="music_meta1"></div>
-                <div class="music_meta_section" id="music_meta2"><h2>FAVOURITE SONGS</h2></div>
+                <div class="music_meta_section" id="data_meta2"><h2>TRAINING TIME</h2></div>
             </div>
             <div class="music_section" id="music2">
-                <div class="music_meta_section" id="music_meta5"><h2>PLAYLISTS</h2></div>
+                <div class="music_meta_section" id="data_meta5"><h2>CALENDAR</h2></div>
                 <div class="music_meta_section" id="music_meta6"></div>
             </div>
             <div class="music_section" id="music1">
                 <div class="music_meta_section" id="music_meta4"></div>
-                <div class="music_meta_section" id="music_meta3"><h2>CONNECT SPOTIFY</h2></div>
+                <div class="music_meta_section" id="data_meta3"><h2>HEARTRATE DATA</h2></div>
             </div>
             <div class="music_section" id="music2">
-                <div class="music_meta_section" id="music_meta7"><h2>VIEW OPTIONS</h2></div>
+                <div class="music_meta_section" id="data_meta7"><h2>VIEW OPTIONS</h2></div>
                 <div class="music_meta_section" id="music_meta8"></div>
             </div>
         </div>
@@ -104,8 +108,8 @@
     <footer id="main_footer">
         <div id="main_footer_left" class="footer_section">
             <h3 class="footer_h3">INTUITIVE INNOVATONS</h3>
-            <p class="footer_p"><strong>Phone:</strong> +358 56 876 3546</p>
-            <p class="footer_p"><strong>Address:</strong> Mannerheimintie 108 C 14<br>00250 Helsinki Finland</p>
+            <p class="footer_contact_p"><strong>Phone:</strong> +358 56 876 3546</p>
+            <p class="footer_contact_p"><strong>Address:</strong> Mannerheimintie 108 C 14<br>00250 Helsinki Finland</p>
             <p class="email_p" id="email"><a href="mailto:placeholder@placeholder.com?Subject=Greetings!" target="_top">CONTACT
                     US</a></p>
             <div id="social_items">
@@ -140,50 +144,48 @@
         <h4 id="close_general_overlay">CLOSE</h4>
     </section>
 
+    <section class="data_overlay" id="data_overlay_charts">
+        <h1 class="data_overlay_meta_h1">TRAINING TIME</h1>
+        <h2 class="data_overlay_meta_h2">
+            This section is a placeholder and under development. It represents an example of data and one of the presentation types used in the application, 
+            so the look and the feel of this section will most likely be changed for the final product. It shows minutes trained per month and you can select which months are being shown by clicking
+            the names of the month and then compare them against one another.<br>
+            <button type="button" id="close_data_overlay_charts">RETURN</button>
+        </h2>
+        <div class="charts_sections">
+            <canvas id="placeholderChart" width="100" height="100"></canvas>
+        </div>
+    </section>
+
     <div id="alert">
         <h2>WARNING!</h2>
         <p>This section is still under construction and thus, can not be accessed.
             <br>
-             We apologize for the inconvenience!
+            We apologize for the inconvenience!
         </p>
         <button type="button" id="alert_button">CLOSE</button>
     </div>
-
-    <section id="favourite_songs">
-            <div id="main_title">
-                    <h1>My Favourites <i class="fas fa-headphones-alt"></i></h1>
-                </div>
-            
-                <div id="form_container">
-                    <form id="book_form" autocomplete="off">
-                        <div class="form_class_group">
-                            <label for="author" class="form_label">Song Author:</label>
-                            <input type="text" class="form_input" id="author" required>
-                        </div>
-                        <div class="form_class_group">
-                            <label for="title" class="form_label">Song Title:</label>
-                            <input type="text" class="form_input" id="title" required>
-                        </div>
-                        <input type="submit" value="Add a song" class="form_button">
-                        <input type="button" value="Close Favourites" class="form_button" id="close_fav">
-
-                    </form>
-            
-                    <table id="additions_table" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>Song Author</th>
-                                <th>Song Title</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody id="additions_table_content"></tbody>
-                    </table>
-
-                </div>
+<!--
+    <section class="data_overlay" id="data_overlay_calendar">
+            <h1 class="data_overlay_meta_h1">CALENDAR</h1>
+            <h2 class="data_overlay_meta_h2">
+                This section is a placeholder and under development. It represents an example of data and one of the presentation types used in the application, 
+                so the look and the feel of this section will most likely be changed for the final product. It shows a calendar protoype that will be connected to
+                the database. The user can create events for specific days and recieve alerts and notifications about them.<br>
+                <button type="button" id="close_data_overlay_calendar">RETURN</button>
+            </h2>
     </section>
 
-    <script src="music.js"></script>
+    <section class="data_overlay" id="data_overlay_options">
+            <h1 class="data_overlay_meta_h1">OPTIONS</h1>
+            <h2 class="data_overlay_meta_h2">
+                This section is a placeholder and under development. It represents an example of data and one of the presentation types used in the application, 
+                so the look and the feel of this section will most likely be changed for the final product.<br>
+                <button type="button" id="close_data_overlay_options">RETURN</button>
+            </h2>
+    </section>-->
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+    <script src="data.js"></script>
 </body>
 </html>

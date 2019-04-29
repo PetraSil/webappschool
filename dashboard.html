@@ -1,4 +1,4 @@
-<!--<?php
+<?php
 session_start();
 if(isset($_POST["user_name"]))
 $_SESSION["session_username"] = $_POST["user_name"];
@@ -7,7 +7,7 @@ function logOut() {
     session_unset();
     session_destroy();
 }
-?>-->
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -52,19 +52,20 @@ function logOut() {
     </div>
 
     <nav id="site_map_overlay">
-        <h2 class="sitemap_h2">MENU</h2>
+        <h2 class="sitemap_h2">SITEMAP</h2>
         <hr>
-        <h3 class="sitemap_h3">Dashboard</h2>
-        <h3 class="sitemap_h3">Contact</h2>
-        <h3 class="sitemap_h3">Home</h2>
-            
-        <h2 class="sitemap_h2">MENU</h2>
-        <hr>
-        <h3 class="sitemap_h3">Dashboard</h2>
-        <h3 class="sitemap_h3">Contact</h2>
-        <h3 class="sitemap_h3">Home</h2>  
+        <h3 class="sitemap_h3" id="menu_home">Home</h3>
+        <h3 class="sitemap_h3" id="menu_dashboard">Dashboard</h3>
+        <h3 class="sitemap_h3" id="menu_data">Data</h3>
+        <h3 class="sitemap_h3" id="menu_music">Music</h3>
+        <h3 class="sitemap_h3" id="menu_profile">Profile</h3>
 
-        <p class="footer_p" id="email_sitemap"><a href="mailto:placeholder@placeholder.com?Subject=Greetings!" target="_top">CONTACT US</a></p>
+        <h2 class="sitemap_h2">OPTIONS</h2>
+        <hr>
+        <h3 class="sitemap_h3" id="menu_application">Application</h3>
+        <h3 class="sitemap_h3" id="menu_personal">Personal</h3>
+
+        <p class="email_p" id="email_sitemap"><a href="mailto:placeholder@placeholder.com?Subject=Greetings!" target="_top">CONTACT US</a></p>
         <div id="social_items_sitemap">
             <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -92,11 +93,11 @@ function logOut() {
         </div>
         <div class="dashboard_section" id="dashboard_images">
             <div class="dashboard_img_container"></div>
-            <div class="dashboard_img_container"><h2>DATA</h2></div>
+            <div class="dashboard_img_container" id="dashboard_data"><h2>DATA</h2></div>
             <div class="dashboard_img_container"></div>
-            <div class="dashboard_img_container"><h2>MUSIC</h2></div>
+            <div class="dashboard_img_container" id="dashboard_music"><h2>MUSIC</h2></div>
             <div class="dashboard_img_container"></div>
-            <div class="dashboard_img_container"><h2>PROFILE</h2></div>
+            <div class="dashboard_img_container" id="dashboard_profile"><h2>PROFILE</h2></div>
         </div>
     </section>
 
@@ -105,7 +106,7 @@ function logOut() {
             <h3 class="footer_h3">INTUITIVE INNOVATONS</h3>
             <p class="footer_p"><strong>Phone:</strong> +358 56 876 3546</p>
             <p class="footer_p"><strong>Address:</strong> Mannerheimintie 108 C 14<br>00250 Helsinki Finland</p>
-            <p class="footer_p" id="email"><a href="mailto:placeholder@placeholder.com?Subject=Greetings!" target="_top">CONTACT
+            <p class="email_p" id="email"><a href="mailto:placeholder@placeholder.com?Subject=Greetings!" target="_top">CONTACT
                     US</a></p>
             <div id="social_items">
                 <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
@@ -139,6 +140,15 @@ function logOut() {
             <br><br>
         <h4 id="close_general_overlay">CLOSE</h4>
     </section>
+
+    <div id="alert">
+        <h2>WARNING!</h2>
+        <p>This section is still under construction and thus, can not be accessed.
+            <br>
+             We apologize for the inconvenience!
+        </p>
+        <button type="button" id="alert_button">CLOSE</button>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
     <script src="dashboard.js"></script>

@@ -87,6 +87,7 @@ li:hover {
     margin-top: 2rem;
     padding-top: 2rem;
     padding-bottom: 2rem;
+    box-shadow: 0px 0px 5px rgb(122, 122, 122);
 }
 
 /* NAVBAR STYLING ENDS */
@@ -135,10 +136,16 @@ li:hover {
     color: white;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 1.8rem;
-    margin: 0.2rem;
+    margin: 0.2rem auto;
     display: flex;
     flex-direction: row;
     transition: all 0.2s linear;
+}
+
+@media(max-width: 800px) {
+    .music_section {
+        width: 90%;
+    }
 }
 
 .music_section:hover {
@@ -247,6 +254,11 @@ li:hover {
     font-weight: 200;
     font-size: 1.1rem;
     margin: 0;
+    transition: all 0.2s linear;
+}
+
+.sitemap_h3:hover {
+    color: rgb(190, 190, 190)
 }
 
 /* LARGE TOP LOGO STYLING BEGINS */
@@ -359,42 +371,6 @@ li:hover {
     font-weight: 600;
 }
 
-.general_overlay {
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(22, 22, 22, 0.90);
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
-}
-
-.general_overlay p {
-    color: white;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 1.5rem;
-}
-
-#close_general_overlay {
-    color: white;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 1.5rem;
-    border: 1px solid white;
-    padding: 0.5rem;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-}
-
-#close_general_overlay:hover {
-    background-color: rgb(241, 241, 241);
-    color: rgb(32, 32, 32)
-}
-
 #main_footer {
     min-height: 30vh;
     height: auto;
@@ -466,7 +442,7 @@ li:hover {
     width: 15rem;
 }
 
-.footer_p {
+.footer_p, .email_p, .footer_contact_p {
     color: rgb(231, 231, 231);
     font-family: 'Roboto', sans-serif;
     font-weight: 200;
@@ -561,4 +537,256 @@ li:hover {
 
 span:hover .fas {
     color: rgb(94, 94, 94);
+}
+
+
+/* GENERAL OVERLAY */
+.general_overlay {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(22, 22, 22, 0.99);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    z-index: 11;
+    opacity: 0;
+    overflow-x: hidden;
+}
+
+.general_overlay p {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.5rem;
+    width: 80%;
+    height: auto;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+}
+
+.general_overlay .overlay_h2 {
+    margin-top: 3rem;
+}
+
+@media(max-width: 600px) {
+    .general_overlay p {
+        font-size: 1rem;
+    }
+}
+
+#close_general_overlay {
+    color: white;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1.5rem;
+    border: 1px solid white;
+    padding: 0.5rem;
+    margin-bottom: 5rem;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    font-weight: 400;
+}
+
+#close_general_overlay:hover {
+    background-color: rgb(241, 241, 241);
+    color: rgb(32, 32, 32)
+}
+
+.overlay_h2 {
+    color: rgb(224, 224, 224);
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    font-size: 2.5rem;
+    margin-bottom: 0;
+    margin-top: 1rem;
+    border-bottom: 1px solid white;
+}
+
+
+button {
+    padding: 0.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-radius: 5%;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    margin: 1rem;
+    margin-top: 2rem;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    border: 1px solid transparent;
+    box-shadow: 0px 1px 3px rgb(85, 85, 85);
+    transition: all 0.2s linear;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(46, 46, 46);
+    color: white;
+}
+
+/* ALERT */
+#alert {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translateY(-50%);
+    transform: translateX(-50%);
+    height: 20rem;
+    width: 20rem;
+    z-index: 2;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: 0px 0px 3px rgb(107, 107, 107);
+    border-radius: 2%;
+    font-family: 'Open Sans Condensed', sans-serif;
+    transition: all 0.2s linear;
+}
+
+#alert p {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+#alert h2 {
+    font-size: 2rem;
+}
+
+#alert button:hover {
+    border: 1px solid white;
+}
+
+/* FAV SONGS SECTION */
+
+#favourite_songs {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    min-height: 100vh;
+    height: auto;
+    opacity: 0;
+    transition: all 0.2s linear;
+    font-family: 'Open Sans Condensed', sans-serif;
+
+}
+
+#main_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-headphones-alt {
+    color: rgb(20, 166, 185);
+}
+
+#main_title > h1 {
+    font-size: 4rem;
+    font-weight: 400;
+    padding: 2rem;
+    letter-spacing: 0.1rem;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.form_class_group:last-of-type {
+    margin-bottom: 2rem;
+}
+
+
+#form_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 5rem;
+}
+
+.form_label {
+    display: block;
+    padding-bottom: 0.5rem;
+}
+
+.form_input {
+    margin-bottom: 2rem;
+    width: 25rem;
+    max-width: 80vw;
+    padding: 0.5rem;
+}
+
+.form_button {
+    display: block;
+    width: 25rem;
+    max-width: 80vw;
+    cursor: pointer;
+    padding: 0.8rem;
+    background-color: black;
+    background-image: linear-gradient(rgb(20, 166, 185), rgb(20, 166, 185)), linear-gradient(transparent, transparent);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 0 3px, auto;
+    border: 1px solid transparent;
+    color: white;
+    transition: all 0.3s ease-in-out;
+    letter-spacing: 0.1rem;
+    margin-top: 1rem;
+}
+
+.form_button:hover {
+    background-size: 100% 3px, auto;
+    box-shadow: 0px 3px 10px rgb(146, 146, 146);
+    opacity: 0.9;
+}
+
+#additions_table {
+    width: 25rem;
+    max-width: 80vw;
+    margin-top: 3rem;
+}
+
+th {
+    border-bottom: 1px solid black;
+    text-align: left;
+    padding: 1rem;
+    font-weight: 600;
+}
+
+td {
+    padding: 1rem;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(233, 233, 233);
+}
+
+.fa-times {
+    color: red;
+}
+
+.information {
+    background-color: rgb(20, 166, 185);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 25rem;
+    max-width: 80vw;
+    text-align: center;
+    color: white;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+}
+
+.information_opacity {
+    opacity: 1;
 }

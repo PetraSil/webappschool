@@ -1,4 +1,8 @@
-
+<?php
+session_start();
+if(isset($_POST["user_name"]))
+$_SESSION["session_username"] = $_POST["user_name"];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +52,7 @@
         <h2 class="overlay_menu_h2" id="overlay_menu_contact">CONTACT</h2>
         <h2 class="overlay_menu_h2" id="overlay_menu_site">SITEMAP</h2>
         <h2 class="overlay_menu_h2" id="overlay_menu_home">HOME</h2>
-        <h2>LOGOUT</h2>
+        <h2 class="overlay_menu_h2" id="overlay_menu_logout">LOGOUT</h2>
     </nav>
 
     <div id="logo_large"></div>
@@ -104,8 +108,8 @@
     <footer id="main_footer">
         <div id="main_footer_left" class="footer_section">
             <h3 class="footer_h3">INTUITIVE INNOVATONS</h3>
-            <p class="footer_p"><strong>Phone:</strong> +358 56 876 3546</p>
-            <p class="footer_p"><strong>Address:</strong> Mannerheimintie 108 C 14<br>00250 Helsinki Finland</p>
+            <p class="footer_contact_p"><strong>Phone:</strong> +358 56 876 3546</p>
+            <p class="footer_contact_p"><strong>Address:</strong> Mannerheimintie 108 C 14<br>00250 Helsinki Finland</p>
             <p class="email_p" id="email"><a href="mailto:placeholder@placeholder.com?Subject=Greetings!" target="_top">CONTACT
                     US</a></p>
             <div id="social_items">
@@ -164,7 +168,7 @@
                             <label for="title" class="form_label">Song Title:</label>
                             <input type="text" class="form_input" id="title" required>
                         </div>
-                        <input type="submit" value="Add a song" class="form_button">
+                        <input type="submit" value="Add song" class="form_button">
                         <input type="button" value="Close Favourites" class="form_button" id="close_fav">
 
                     </form>
@@ -184,6 +188,7 @@
     </section>
 
     <script src="music.js"></script>
+    <script src="musiclist.js"></script>
 
 </body>
 </html>

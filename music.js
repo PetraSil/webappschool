@@ -14,6 +14,7 @@ const toContact = () => {
     })
 };
 
+
 document.getElementById("nav_contact").addEventListener("click", toContact);
 
 const toMusic = () => {
@@ -21,18 +22,34 @@ const toMusic = () => {
         behavior: "smooth",
         block: "start",
         inline: "start"
-    })
+    });
 };
 
 document.getElementById("nav_music").addEventListener("click", toMusic);
 document.getElementById("overlay_menu_music").addEventListener("click", toMusic);
+document.getElementById("menu_music").addEventListener("click", toMusic);
+
 
 const toHome = () => {
-    window.location.href = "login.html";
+    window.location.href = "login.php";
 };
 
 document.getElementById("nav_home").addEventListener("click", toHome);
 document.getElementById("overlay_menu_home").addEventListener("click", toHome);
+document.getElementById("menu_home").addEventListener("click", toHome);
+
+const toDashboard = () => {
+    window.location.href = "dashboard.php";
+};
+
+document.getElementById("menu_dashboard").addEventListener("click", toDashboard);
+
+const toData = () => {
+    window.location.href = "data.php";
+};
+
+document.getElementById("menu_data").addEventListener("click", toData);
+
 
 //NAVBAR BACKGROUND HANDLING
 const navbar = document.getElementById("navbar_desktop");
@@ -131,3 +148,82 @@ window.addEventListener("mouseup", function (event) {
         sitemap = false;
     }
 });
+
+
+//GENERAL OVERLAY CONTROLS
+let generalOverlay = false;
+
+const overlayControl = () => {
+    if (!generalOverlay) {
+        document.querySelector(".general_overlay").style.display = "flex";
+        document.querySelector(".general_overlay").scrollTo(0, 0);
+        setTimeout(function () {
+            document.querySelector(".general_overlay").style.opacity = "1";
+        }, 50);
+        generalOverlay = true;
+    } else {
+        document.querySelector(".general_overlay").style.opacity = "0";
+        setTimeout(function () {
+            document.querySelector(".general_overlay").style.display = "none";
+        }, 500);
+        generalOverlay = false;
+    }
+};
+
+document.querySelector("#close_general_overlay").addEventListener("click", overlayControl);
+const footer_p_overlay = document.querySelectorAll(".footer_p");
+
+for(let i = 0; i < footer_p_overlay.length; i++) {
+        footer_p_overlay[i].addEventListener("click", overlayControl);
+};
+
+/*ALERT*/
+let alert = false;
+
+const alertHandle = () => {
+    if(!alert) {
+        document.getElementById("alert").style.display = "flex";
+        alert = true;
+    } else {
+        document.getElementById("alert").style.display = "none";
+        alert = false;
+    }
+}
+
+document.getElementById("alert_button").addEventListener("click", alertHandle);
+document.getElementById("music_meta7").addEventListener("click", alertHandle);
+document.getElementById("music_meta5").addEventListener("click", alertHandle);
+document.getElementById("music_meta3").addEventListener("click", alertHandle);
+document.getElementById("menu_profile").addEventListener("click", alertHandle);
+document.getElementById("menu_application").addEventListener("click", alertHandle);
+document.getElementById("menu_personal").addEventListener("click", alertHandle);
+document.getElementById("nav_logout").addEventListener("click", alertHandle);
+document.getElementById("overlay_menu_logout").addEventListener("click", alertHandle);
+
+/* FAV SONGS OVERLAY */
+let overlay_fav = false;
+
+const favOverlayHandle = () => {
+    if(!overlay_fav) {
+        document.getElementById("favourite_songs").style.width = "100%";
+        document.getElementById("favourite_songs").style.display = "flex";
+        document.getElementById("main_footer").style.display = "none";
+        document.getElementById("music_main_container").style.display = "none";
+        setTimeout(function () {
+            document.getElementById("favourite_songs").style.opacity = "0.99";
+        }, 200);
+        overlay_fav = true;
+    } else {
+        document.getElementById("favourite_songs").style.opacity = "0";
+        setTimeout(function () {
+            document.getElementById("favourite_songs").style.width = "0";
+            document.getElementById("favourite_songs").style.display = "none";
+        }, 200);
+        document.getElementById("main_footer").style.display = "flex";
+        document.getElementById("music_main_container").style.display = "block";
+        overlay_fav = false;
+    }
+};
+
+document.getElementById("music_meta2").addEventListener("click", favOverlayHandle);
+document.getElementById("close_fav").addEventListener("click", favOverlayHandle);

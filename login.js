@@ -37,13 +37,13 @@ const toLogin = (event) => {
         behavior: "instant",
         block: "start",
         inline: "start"
-    })
+    });
 } else {
     document.getElementById("main_login_section_container").scrollIntoView({
         behavior: "smooth",
         block: "start",
         inline: "start"
-    })
+    });
 }
 };
 
@@ -160,9 +160,7 @@ document.querySelector("#tos").addEventListener("click", overlayControl);
 const footer_p_overlay = document.querySelectorAll(".footer_p");
 
 for(let i = 0; i < footer_p_overlay.length; i++) {
-    if(event.target != "email") {
-        footer_p_overlay[i].addEventListener("click", overlayControl);
-    }
+    footer_p_overlay[i].addEventListener("click", overlayControl);
 };
 
 //Register form controls
@@ -194,8 +192,9 @@ let feature_mouse = false;
 
 const feature_overlay = (el) => {
     const overlay_first = document.getElementsByClassName("action_container");
+    const email = document.getElementById("email");
 
-    if(!feature_mouse) {
+    if(!feature_mouse && el.target != email ) {
         for(let i = 0; i < overlay_first.length; i++) {
             if(el != overlay_first[i]) {
             overlay_first[i].classList.add("grayscale");
@@ -208,4 +207,16 @@ const feature_overlay = (el) => {
     }
         feature_mouse = false;
     }
-}
+};
+
+/* LOGIN ALERT */
+/*
+let loginTrue = false;
+
+const loginAlert = () => {
+    if(!loginTrue) {
+        document.getElementById("login_alert").style.display = "flex";
+    }
+};
+
+document.getElementById("login_button").addEventListener("click", loginAlert);*/
