@@ -210,13 +210,30 @@ const feature_overlay = (el) => {
 };
 
 /* LOGIN ALERT */
-/*
+
 let loginTrue = false;
 
 const loginAlert = () => {
     if(!loginTrue) {
         document.getElementById("login_alert").style.display = "flex";
+        setTimeout(function () {
+            document.getElementById("login_alert").style.opacity = "1";
+        }, 100);
+        loginTrue = true;
+    } else {
+        loginTrue = false;
     }
 };
 
-document.getElementById("login_button").addEventListener("click", loginAlert);*/
+document.getElementById("login_button").addEventListener("click", loginAlert);
+
+window.addEventListener("mouseup", function (event) {
+    const login_alert = document.getElementById("login_alert");
+    if (loginTrue == true && event.target != login_alert) {
+        document.getElementById("login_alert").style.opacity = "0";
+        setTimeout(function () {
+            document.getElementById("login_alert").style.display = "none";
+        }, 100);
+        loginTrue = false;
+    }
+});

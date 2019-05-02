@@ -30,16 +30,10 @@ $password_login = $_POST["user_password"];
   $password_hashed_from_database = $roww['hashed_password'];
   $compare_password = password_verify($pass_form, $password_hashed_from_database); 
   if (($roww['username'] == $username_login) && ($compare_password == 1)) {  
-
-      $URL = "dashboard.php";
-      if( headers_sent() ) { 
-          echo("<script>location.href='$URL'</script>"); 
-            } else { 
-                header("Location: $URL"); 
-            }
-      exit; 
-    } else {
-         
+      if(!headers_sent()) {  
+                echo"<script type='text/javascript'>
+                window.parent.location.href = 'dashboard.php';</script>";
+      }
     }
 
     /* REGISTER FORM */
@@ -142,7 +136,7 @@ $password_login = $_POST["user_password"];
                     <div class="action_container_overlay">
                         <i class="fas fa-headphones-alt"></i>
                         <h3 class="action_container_overlay_h3">MUSIC</h3>
-                        <p class="overlay_p">Integrate your favourite music, own or through Spotify, to seamlessly guide your workouts.</p>
+                        <p class="overlay_p">"Integrate your favourite music, own or through Spotify, to seamlessly guide your workouts."</p>
                         <button type="button" class="action_container_button">SIGN IN</button>
                     </div>
                 </div>
@@ -150,7 +144,7 @@ $password_login = $_POST["user_password"];
                     <div class="action_container_overlay">
                         <i class="fas fa-user"></i>
                         <h3 class="action_container_overlay_h3">SOCIAL</h3>
-                        <p class="overlay_p">"Share your workout and challenge your friends to compete who can hit it the fastest, longest or hardest."</p>
+                        <p class="overlay_p">"Share your workout and challenge your friends to compete who can hit it the fastest, longest or hardest!"</p>
                         <button type="button" class="action_container_button">SIGN IN</button>
                     </div>
                 </div>
@@ -158,7 +152,7 @@ $password_login = $_POST["user_password"];
                     <div class="action_container_overlay">
                         <i class="fas fa-heartbeat"></i>
                         <h3 class="action_container_overlay_h3">DATA</h3>
-                        <p class="overlay_p">Study the depths of your workouts through detailed analysis and let the application be your coach.</p>
+                        <p class="overlay_p">"Study the depths of your workouts through detailed analysis and let the application be your coach."</p>
                         <button type="button" class="action_container_button">SIGN IN</button>
                     </div>
                 </div>
@@ -178,8 +172,8 @@ $password_login = $_POST["user_password"];
                     <header id="login_section_header">
                         <h2 class="north_beat_title">NORTH BEAT</h2>
                     </header>
-                    <iframe name="target" id="target" width="0px" height="0px" frameborder="0"></iframe>
-                    <form method="post" action="" target="" autocomplete="off">
+                    <iframe name="target" id="target" frameborder="0"></iframe>
+                    <form method="post" action="" target="target" autocomplete="off">
                         <label for="user_name"><i class="fas fa-user-circle"></i>USERNAME</label>
                         <input id="user_name" type="text" name="user_name" placeholder="Username" required>
                         <label for="user_password"><i class="fas fa-unlock-alt"></i>PASSWORD</label>

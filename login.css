@@ -308,10 +308,13 @@ li:hover {
     align-items: center;
     flex-direction: column;
     transition: all 0.2s linear;
+    outline: 1px solid transparent;
 }
 
 .action_container_overlay:hover {
     background-color: rgba(36, 36, 36, 0.95);
+    outline: 1px solid white;
+    outline-offset: -0.5rem;
 }
 
 .grayscale {
@@ -327,10 +330,10 @@ li:hover {
     transition: all 0.2s linear;
 }
 
-.action_container_overlay h3 {
+.action_container_overlay_h3 {
     text-align: center;
     font-family: 'Open Sans Condensed', sans-serif;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 1.8rem;
     letter-spacing: 0.1rem;
     color: rgb(29, 29, 29);
@@ -1079,10 +1082,11 @@ span:hover .fas {
 
 #login_alert {
     display: none;
-    width: 10rem;
-    height: 10rem;
+    width: 13rem;
+    height: 13rem;
     background-color: red;
     position: fixed;
     top: 50%;
     z-index: 2;
+    transition: all 0.2s linear;
 }
