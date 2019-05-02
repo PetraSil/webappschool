@@ -49,7 +49,7 @@ document.getElementById("menu_data").addEventListener("click", toData);
 document.getElementById("overlay_menu_data").addEventListener("click", toData);
 
 const toHeart = () => {
-    window.location.href = "graphingxmlexample.php";
+    window.location.href = "trainingdata.php";
 }
 
 document.getElementById("data_meta3").addEventListener("click", toHeart);

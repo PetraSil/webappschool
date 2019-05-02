@@ -94,7 +94,7 @@ li:hover {
 /* NAVBAR STYLING ENDS */
 
 /* MUSIC */
-#music_top {
+#data_top {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -103,7 +103,7 @@ li:hover {
     text-align: center;
 }
 
-#music_top h1 {
+#data_top h1 {
     font-size: 6rem;
     font-weight: 600;
     font-family: 'Open Sans Condensed', sans-serif;
@@ -114,12 +114,12 @@ li:hover {
 }
 
 @media(max-width:800px) {
-    #music_top h1 {
+    #data_top h1 {
         font-size: 4rem;
     }
 }
 
-#music_bottom {
+#data_bottom {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -130,7 +130,7 @@ li:hover {
     margin-bottom: 5rem;
 }
 
-.music_section {
+.data_section {
     height: 20rem;
     width: 40rem;
     background-color: black;
@@ -143,22 +143,35 @@ li:hover {
     transition: all 0.2s linear;
 }
 
+.data_section_wide{
+    height: 20rem;
+    width: 80.4rem;
+    background-color: black;
+    color: white;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1.8rem;
+    margin: 0.2rem;
+    display: flex;
+    flex-direction: row;
+    transition: all 0.2s linear;
+}
+
 @media(max-width: 800px) {
-    .music_section {
+    .data_section, .data_section_wide {
         width: 90%;
     }
 }
 
-.music_section:hover {
+.data_section:hover {
     box-shadow: 0px 0px 6px rgb(59, 59, 59);
 }
 
-.music_section:hover h2 {
+.data_section:hover h2 {
     color: rgb(172, 172, 172);
     background-size: 99% 1px, auto;
 }
 
-.music_meta_section {
+.data_meta_section {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -169,7 +182,7 @@ li:hover {
     transition: all 0.2s linear;
 }
 
-.music_meta_section h2 {
+.data_meta_section h2 {
     font-size: 2rem;
     font-weight: 200;
     background-image: linear-gradient(rgb(12, 151, 175), rgb(12, 151, 175));
@@ -179,34 +192,44 @@ li:hover {
     transition: all 0.2s linear;
 }
 
+
 @media(max-width:800px) {
-    .music_meta_section h2 {
+    .data_meta_section h2 {
         font-size: 1.5rem;
     }
 }
 
-#music_meta1 {
+#data_meta1 {
     background-image: url("data.jpg");
     background-size: cover;
     background-position: center center;
 }
 
-#music_meta4 {
+#data_meta4 {
     background-image: url("blur-chart-data-159888gs.jpg");
     background-size: cover;
     background-position: center center;
 }
 
-#music_meta6 {
+#data_meta6 {
     background-image: url("tobias-van-schneider-230167-unsplash.jpg");
     background-size: cover;
     background-position: center center;
 }
 
-#music_meta8 {
+#data_meta8 {
     background-image: url("business-2178566_1280.jpg");
     background-size: cover;
     background-position: center center;
+}
+
+#map_meta1 {
+    width:35%;
+    border: solid 2px yellow;
+}
+
+#map_meta2 {
+    width:65%;
 }
 
 /* SITEMAP OVERLAY */
@@ -753,4 +776,8 @@ button:hover {
 
 #alert button:hover {
     border: 1px solid white;
+}
+
+#hrGraphContainer{
+width: 100%;
 }

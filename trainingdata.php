@@ -2,6 +2,7 @@
 session_start();
 if(isset($_POST["user_name"]))
 $_SESSION["session_username"] = $_POST["user_name"];
+include 'xmlparser.php'
 ?>
 
 <!DOCTYPE html>
@@ -17,9 +18,38 @@ $_SESSION["session_username"] = $_POST["user_name"];
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="https://openlayers.org/en/v5.3.0/css/ol.css" type="text/css">
+    <link rel="stylesheet" href="css/mapcss.css">
 
+</head>
+<body onload="init();">
+
+
+
+<script>
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+            label: 'My First dataset',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 10, 5, 2, 20, 30, 45]
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+
+    </script>
+   
     <nav id="navbar_desktop">
         <ul>
             <li id="nav_data">
@@ -85,21 +115,26 @@ $_SESSION["session_username"] = $_POST["user_name"];
     <section id="data_main_container">
         <div id="data_top"><h1>USER DATA</h1></div>
         <div id="data_bottom">
+            <div class="data_section_wide" id="data1">
+                <div class="data_meta_section" id="map_meta1">
+                    <?echo "Average heart-rate: $averagehr bpm<br>";
+                    //echo "Average heart-rate from file is $avhrfromfile<br>";
+                    echo "Total distance $distanceArray[$qtyOfEmbryos] meters<br>";
+                    echo "Your average speed was $avspeed km/h<br>";?>
+                </div>
+                <div class="data_meta_section" id="map_meta2">
+                    <div id="map"></div>
+                </div>
+            </div>
             <div class="data_section" id="data1">
-                <div class="data_meta_section" id="data_meta1"></div>
-                <div class="data_meta_section" id="data_meta2"><h2>TRAINING TIME</h2></div>
+                <canvas id="myChart"></canvas>
             </div>
             <div class="data_section" id="data2">
                 <div class="data_meta_section" id="data_meta5"><h2>CALENDAR</h2></div>
-                <div class="data_meta_section" id="data_meta6"></div>
             </div>
-            <div class="data_section" id="data1">
-                <div class="data_meta_section" id="data_meta4"></div>
+            
+            <div class="data_section_wide" id="data1">
                 <div class="data_meta_section" id="data_meta3"><h2>HEARTRATE DATA</h2></div>
-            </div>
-            <div class="data_section" id="data2">
-                <div class="data_meta_section" id="data_meta7"><h2>VIEW OPTIONS</h2></div>
-                <div class="data_meta_section" id="data_meta8"></div>
             </div>
         </div>
        
@@ -187,5 +222,15 @@ $_SESSION["session_username"] = $_POST["user_name"];
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
     <script src="data.js"></script>
+    <script src="map.js"> </script>
+    
+
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>  
+    <!-- Openlayers javascript libraries-->
+    <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+    <!-- OpenStreetMap OpenLayers layers.-->
+    <script src="https://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
+    <!--canva.js gaphs-->
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>    
 </body>
 </html>
