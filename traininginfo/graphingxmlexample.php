@@ -1,11 +1,18 @@
+<?php
+session_start();
+if(isset($_POST["user_name"]))
+$_SESSION["session_username"] = $_POST["user_name"];
+?>
+
 <!doctype html>
-<html lang="fi">
+<html lang="en">
 
 <head>
 	<link rel="stylesheet" href="css/stylebackup1.css">
 	<link rel="stylesheet" href="css/mapcss.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GRAPHING</title>
@@ -13,7 +20,9 @@
 
   
 <body>
-
+<h2>This section is a placeholder and under development. It represents an example of data and one of the presentation types used in the application, 
+    so the look and the feel of this section will most likely be changed for the final product.</h2>
+    <button type="button" id="close_data_overlay_charts">RETURN</button>
 <?php
     //reding the xml file
     $mytrackinfo = simplexml_load_file('xml/kalliotoolo.xml');
@@ -163,14 +172,21 @@
         chart.render();
 
         }
+
+        
+        const toData = () => {
+        window.location.href = "data.php";
+        };
+
+        document.getElementById("close_data_overlay_charts").addEventListener("click", toData);
+
     </script>
 
     <div id="hrGraphContainer" style="height: 370px; width: 100%;"></div>
     <div id="SpeednAltGraphContainer" style="height: 370px; width: 100%;"></div>
     <div id="speedGraphContainer" style="height: 370px; width: 100%;"></div>
     <div id="altitudeGraphContainer" style="height: 370px; width: 100%;"></div>
-
-
+    
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>                        
 
 </body>

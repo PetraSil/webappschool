@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+    font-family: arial;
+    font-weight: 400;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#main_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-headphones-alt {
+    color: rgb(20, 166, 185);
+}
+
+#main_title > h1 {
+    font-size: 3rem;
+    font-family: arial;
+    font-weight: 400;
+    padding: 2rem;
+    letter-spacing: 0.1rem;
+}
+
+.form_class_group:last-of-type {
+    margin-bottom: 2rem;
+}
+
+#form_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 5rem;
+}
+
+.form_label {
+    display: block;
+    padding-bottom: 0.5rem;
+}
+
+.form_input {
+    margin-bottom: 2rem;
+    width: 25rem;
+    max-width: 80vw;
+    padding: 0.5rem;
+}
+
+.form_button {
+    display: block;
+    width: 25rem;
+    max-width: 80vw;
+    cursor: pointer;
+    padding: 0.8rem;
+    background-color: black;
+    background-image: linear-gradient(rgb(20, 166, 185), rgb(20, 166, 185)), linear-gradient(transparent, transparent);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 0 3px, auto;
+    border: 1px solid transparent;
+    color: white;
+    transition: all 0.3s ease-in-out;
+    letter-spacing: 0.1rem;
+}
+
+.form_button:hover {
+    background-size: 100% 3px, auto;
+    box-shadow: 0px 3px 10px rgb(146, 146, 146);
+    opacity: 0.9;
+}
+
+#additions_table {
+    width: 25rem;
+    max-width: 80vw;
+    margin-top: 3rem;
+}
+
+th {
+    border-bottom: 1px solid black;
+    text-align: left;
+    padding: 1rem;
+    font-weight: 600;
+}
+
+td {
+    padding: 1rem;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(233, 233, 233);
+}
+
+.fa-times {
+    color: red;
+}
+
+.information {
+    background-color: rgb(20, 166, 185);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 25rem;
+    max-width: 80vw;
+    text-align: center;
+    color: white;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+}
+
+.information_opacity {
+    opacity: 1;
+}

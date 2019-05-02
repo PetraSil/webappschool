@@ -1,4 +1,4 @@
-/* VARIABLES */
+/* VARIABLES PLACEHOLDER*/
 
 /* GLOBALS */
 * {
@@ -70,7 +70,7 @@ a {
 
 .navbar_background {
     background-color: rgba(255, 255, 255, 0.95) !important;
-    box-shadow: 0 0 10px rgb(197, 197, 197);
+    box-shadow: 0 0 3px rgb(197, 197, 197);
 }
 
 ul {
@@ -107,8 +107,8 @@ li:hover {
     margin-top: 2rem;
     padding-top: 2rem;
     padding-bottom: 2rem;
+    box-shadow: 0px 0px 5px rgb(122, 122, 122);
 }
-
 /* NAVBAR STYLING ENDS */
 
 
@@ -140,7 +140,6 @@ li:hover {
         z-index: 6;
     }
 }
-
 /* LARGE TOP LOGO STYLING ENDS */
 
 /* MAIN HEADER SECTION BEGINS, INCLUDES TITLES AND TEXT */
@@ -207,7 +206,7 @@ li:hover {
     text-align: center;
 }
 
-#main_header p {
+#main_header_p {
     font-size: 1.4rem;
     line-height: 2.1rem;
     width: 60%;
@@ -253,12 +252,10 @@ li:hover {
         margin-top: 2rem;
     }
 }
-
 /* MAIN HEADER ENDS */
 
 
 /* ACTION LOGOS */
-
 #action_logos {
     display: flex;
     flex-wrap: wrap;
@@ -284,15 +281,13 @@ li:hover {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 2rem;
+    margin: 1rem;
     padding-top: 1rem;
     width: 15rem;
     min-height: 15rem;
     height: auto;
     box-shadow: 0px 1px 3px rgb(207, 193, 193);
-    /*border-radius: 5% 5% 0 0;*/
     transition: 0.2s ease-in-out;
-    cursor: pointer;
     position: relative;
     overflow: hidden;
 }
@@ -313,10 +308,13 @@ li:hover {
     align-items: center;
     flex-direction: column;
     transition: all 0.2s linear;
+    outline: 1px solid transparent;
 }
 
 .action_container_overlay:hover {
-    background-color: rgba(255, 255, 255, 0.99);
+    background-color: rgba(36, 36, 36, 0.95);
+    outline: 1px solid white;
+    outline-offset: -0.5rem;
 }
 
 .grayscale {
@@ -332,10 +330,10 @@ li:hover {
     transition: all 0.2s linear;
 }
 
-.action_container_overlay h3 {
+.action_container_overlay_h3 {
     text-align: center;
     font-family: 'Open Sans Condensed', sans-serif;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 1.8rem;
     letter-spacing: 0.1rem;
     color: rgb(29, 29, 29);
@@ -343,14 +341,14 @@ li:hover {
     margin-bottom: 0.5rem;
 }
 
-.action_container_overlay #overlay_p {
+.overlay_p {
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-size: 1rem;
     line-height: 1.2rem;
     color: rgba(70, 70, 70, 0);
-    margin-top: 0;
+    margin: 0;
     animation-delay: 0.01s;
     animation-duration: 0.8s;
     width: 85%;
@@ -372,9 +370,26 @@ li:hover {
     margin-top: -5rem;
 }
 
-.action_container_overlay:hover #overlay_p {
+.action_container_overlay:hover .overlay_p {
     display: block;
-    color: rgba(70, 70, 70, 1)
+    color: rgb(255, 255, 255)
+}
+
+.action_container_overlay:hover h3 {
+    color: rgb(255, 255, 255);
+}
+
+.action_container_overlay button {
+    background-color: rgb(250, 250, 250);
+    color: rgb(32, 32, 32);
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.action_container_overlay button:hover {
+    background-color: rgb(32, 32, 32);
+    color: rgb(243, 243, 243);
+    border: 1px solid rgb(247, 247, 247);
 }
 
 .action_container:nth-of-type(1) {
@@ -390,11 +405,10 @@ li:hover {
 }
 
 .action_container:nth-of-type(3) {
-    background-image: url("blur-business-chart-159888.jpg");
+    background-image: url("blur-chart-data-159888.jpg");
     background-size: cover;
     background-position: center center;
 }
-
 /* ACTION LOGOS END */
 
 
@@ -525,7 +539,6 @@ li:hover {
 }
 
 /*REGISTER FORM */ 
-
 #register_overlay form {
     padding: 0;
     padding-top: 2rem;
@@ -577,7 +590,6 @@ form span {
 form span:hover {
     color: rgb(204, 204, 204);
 }
-
 /*REGISTER FORM ENDS */
 
 form {
@@ -678,13 +690,12 @@ h4 span:hover {
     height: 100%;
     padding-bottom: 5rem;
     padding-top: 5rem;
-    background-color: rgba(22, 22, 22, 0.99);
+    background-color: rgba(22, 22, 22, 1);
     display: none;
     flex-direction: column;
     align-items: center;
     z-index: 10;
     opacity: 0;
-    /*transition: all 0.3s ease-in-out;*/
     overflow-x: hidden;
 }
 
@@ -717,12 +728,12 @@ h4 span:hover {
     align-items: center;
 }
 
-.overlay_p {
-    color: rgb(224, 224, 224);
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    font-size: 0.9rem;
-    line-height: 1.5rem;
+#extra_container_p {
+    color: white;
+    text-align: left;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    line-height: 1.4rem;
 }
 
 .overlay_h2 {
@@ -734,7 +745,6 @@ h4 span:hover {
     margin-bottom: 0;
     margin-top: 1rem;
     border-bottom: 1px solid white;
-
 }
 
 #help_overlay button {
@@ -853,7 +863,7 @@ h4 span:hover {
     width: 15rem;
 }
 
-.footer_p {
+.footer_p, .email_p, .footer_contact_p {
     color: rgb(231, 231, 231);
     font-family: 'Roboto', sans-serif;
     font-weight: 200;
@@ -863,23 +873,30 @@ h4 span:hover {
     width: 15rem;
     line-height: 1.5rem;
     transition: all 0.3s ease-in-out;
+    overflow: hidden;
 }
 
 #email {
     color: rgb(231, 231, 231);
     border: 1px solid rgb(231, 231, 231);
     cursor: pointer;
-    padding: 0.8rem;
     font-weight: 400;
     margin-top: 1rem;
     text-align: center;
     transition: all 0.3s ease-in-out;
-    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
 }
-
 #email a {
     font-family: 'Open Sans Condensed', sans-serif;
     letter-spacing: 0.1rem;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 #email:hover {
@@ -895,12 +912,14 @@ h4 span:hover {
     margin-top: 1rem;
     border-top: 1px solid rgb(73, 73, 73);
     padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
 }
 
 .fab {
     color: white;
-    font-size: 1.3rem;
-    margin-right: 1.3rem;
+    font-size: 1.4rem;
+    margin-right: 1.5rem;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
@@ -999,6 +1018,7 @@ span:hover .fas {
     font-weight: 600;
 }
 
+/* GENERAL OVERLAY */
 .general_overlay {
     position: fixed;
     top: 0;
@@ -1010,23 +1030,28 @@ span:hover .fas {
     align-items: center;
     z-index: 11;
     opacity: 0;
-    /*transition: all 0.3s ease-in-out;*/
     overflow-x: hidden;
 }
 
 .general_overlay p {
     color: white;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 1.3rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.5rem;
     width: 80%;
     height: auto;
     padding-bottom: 2rem;
     padding-top: 2rem;
 }
 
+.general_overlay .overlay_h2 {
+    margin-top: 3rem;
+}
+
 @media(max-width: 600px) {
     .general_overlay p {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 }
 
@@ -1044,4 +1069,24 @@ span:hover .fas {
 #close_general_overlay:hover {
     background-color: rgb(241, 241, 241);
     color: rgb(32, 32, 32)
+}
+
+/* IFRAME TARGET*/
+
+#target, iframe {
+    height: 0;
+    width: 0;
+}
+
+/* LOGIN ALERT */
+
+#login_alert {
+    display: none;
+    width: 13rem;
+    height: 13rem;
+    background-color: red;
+    position: fixed;
+    top: 50%;
+    z-index: 2;
+    transition: all 0.2s linear;
 }
