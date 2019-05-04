@@ -1,7 +1,5 @@
 <?php
-session_start();
-if(isset($_POST["user_name"]))
-$_SESSION["session_username"] = $_POST["user_name"];
+include "session.php";
 ?>
 
 <!DOCTYPE html>

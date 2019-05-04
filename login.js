@@ -32,7 +32,7 @@ document.querySelector("#help_close_button").addEventListener("click", open_help
 
 //SCROLLS TO SECTIONS
 const toLogin = (event) => {
-    if(event == "register_close") {
+    if(event == "register_close" || event == "register_open") {
     document.getElementById("main_login_section_container").scrollIntoView({
         behavior: "instant",
         block: "start",
@@ -62,7 +62,7 @@ const toAbout = () => {
         behavior: "smooth",
         block: "start",
         inline: "start"
-    })
+    });
 };
 
 document.getElementById("nav_about").addEventListener("click", toAbout);
@@ -72,7 +72,7 @@ const toContact = () => {
         behavior: "smooth",
         block: "start",
         inline: "start"
-    })
+    });
 };
 
 document.getElementById("nav_contact").addEventListener("click", toContact);
@@ -167,14 +167,23 @@ for(let i = 0; i < footer_p_overlay.length; i++) {
 let registerOverlay = false;
 
 const registerControl = () => {
-    if (!registerOverlay) {
+    if (!registerOverlay) {      
         document.querySelector("#register_overlay").style.display = "flex";
-        document.querySelector("#register_overlay").style.height = "100%";
+        document.querySelector("#register_overlay").style.height = "80vh";
+        document.querySelector("body").style.overflow = "hidden";
+        document.querySelector("html").style.overflow = "hidden";
+        document.querySelector("#register_overlay_h2").scrollIntoView({
+            behavior: "instant",
+            block: "start",
+            inline: "start"
+        });  
         setTimeout(function () {
             document.querySelector("#register_overlay").style.opacity = "1";
         }, 50);
         registerOverlay = true;
     } else {
+        document.querySelector("body").style.overflow = "visible";
+        document.querySelector("html").style.overflow = "visible";
         document.querySelector("#register_overlay").style.opacity = "0";
         setTimeout(function () {
             document.querySelector("#register_overlay").style.display = "none";
@@ -186,6 +195,25 @@ const registerControl = () => {
 
 document.querySelector("#register_open").addEventListener("click", registerControl);
 document.querySelector("#register_close").addEventListener("click", registerControl);
+
+window.addEventListener("mouseup", function (event) {
+    const register_overlay = document.getElementById("register_overlay");
+    const register_h2 = document.getElementById("register_overlay_h2");
+    const register_form = document.getElementById("register_form");
+    const legal = document.getElementById("legal_jargon");
+    if (registerOverlay == true && event.target != register_overlay && event.target != register_h2 && 
+        event.target != register_form && !register_form.contains(event.target) && event.target != legal &&
+        !legal.contains(event.target)) {
+        document.querySelector("#register_overlay").style.opacity = "0";
+        document.querySelector("body").style.overflow = "visible";
+        document.querySelector("html").style.overflow = "visible";
+        setTimeout(function () {
+            document.querySelector("#register_overlay").style.display = "none";
+            document.querySelector("#register_overlay").style.height = "0";
+        }, 500);
+        registerOverlay = false;
+    }
+});
 
 /* FEATURE HOVER */
 let feature_mouse = false;
@@ -229,6 +257,7 @@ document.getElementById("login_button").addEventListener("click", loginAlert);
 
 window.addEventListener("mouseup", function (event) {
     const login_alert = document.getElementById("login_alert");
+
     if (loginTrue == true && event.target != login_alert) {
         document.getElementById("login_alert").style.opacity = "0";
         setTimeout(function () {
