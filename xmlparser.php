@@ -50,9 +50,7 @@
         array_push($timeformat, gmdate("H:i:s", $val));
     };
   
-    $averagehr=number_format(array_sum($hrArray)/(sizeof($hrArray)-1),0);
-    //$avhrfromfile=$mytrackinfo->{'calendar-items'}[0]->exercise->result->{'heart-rate'}->average;
-    $avspeed=number_format(($distanceArray[$qtyOfEmbryos]/1000)/($timepoints[$qtyOfEmbryos]/3600),2);
+
     
 
     //print_r($graph_array);
@@ -62,5 +60,38 @@
     for ($i=0; $i<sizeof($hrArray);$i++){
         array_push($timepoints, $i*5);
     }
-  
+
+    //calculating data
+
+    $maxHR=max($hrArray);
+    $minHR=min($hrArray);
+
+    $averagehr=number_format(array_sum($hrArray)/(sizeof($hrArray)-1),0);
+    $avspeed=number_format(($distanceArray[$qtyOfEmbryos]/1000)/($timepoints[$qtyOfEmbryos]/3600),2);
+    $highspeed=number_format(max($speedArray),2);
+
+    $totaldistance=number_format($distanceArray[$qtyOfEmbryos],0,","," ");
+
+    $ascension=0;
+    $descension=0;
+
+    for ($i=1;$i<sizeof($altitudeArray);$i++){
+        $result=($altitudeArray[$i] - $altitudeArray[$i-1]);
+       
+        if($result<0){
+            //descension
+            $desc=$desc-$result;          
+        }else{
+            //ascension
+            $asc=$asc+$result;
+        };
+    };
+
+    $deltah=(max($altitudeArray)-min($altitudeArray));
+    $ascension=number_format($asc,0);
+    $descension=number_format($desc,0);
+    $g=2;
+    $calc=$altitudeArray[$g-1];
+    $delta=$altitudeArray[1]-$altitudeArray[0];
+    
    ?> 

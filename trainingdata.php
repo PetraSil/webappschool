@@ -105,7 +105,9 @@ include 'xmlparser.php'
             <div class="data_section" id="graph1">
                 <div class="data_meta_section" id="data_meta5">
                     <?
-                    echo "<p>Average heart-rate: $averagehr bpm<br></p>";
+                    echo "<p>Average heart-rate: $averagehr bpm<br>
+                    min heart-rate: $minHR bpm<br>
+                    max heart-rate: $maxHR bpm<br></p>";
                     ?>
                 </div>
             </div>
@@ -113,7 +115,8 @@ include 'xmlparser.php'
             <div class="data_section" id="graph2">
                 <div class="data_meta_section" id="graph1">
                 <?
-                echo "<p>Your average speed was $avspeed km/h<br></p>";
+                echo "<p>Your average speed was $avspeed km/h<br>
+                    and your highspeed $highspeed km/h<br></p>";
                 ?>
                 </div>
             </div>
@@ -127,7 +130,10 @@ include 'xmlparser.php'
             <div class="data_section" id="graph3">
                 <div class="data_meta_section" id="graph1">
                 <? 
-                echo "Total distance $distanceArray[$qtyOfEmbryos] meters<br>"
+                echo "<p>You traveled $totaldistance meters,<br>
+                ascended $ascension meters <br>
+                and descended $descension meters <br>
+                during your workout<br></p> "
                 ?>
                 </div>
             </div>
@@ -373,12 +379,11 @@ include 'xmlparser.php'
         var altitude_ctx = document.getElementById("altitudeChart").getContext("2d");
 
         //GRADIENT COLOR DEFINITIONS
-        var mountain_gradient = altitude_ctx.createLinearGradient(0, 0, 0, 800);
-            mountain_gradient.addColorStop(1, 'magenta');
-            mountain_gradient.addColorStop(0.8, 'blue');
-            mountain_gradient.addColorStop(0.6, 'cyan');
-            mountain_gradient.addColorStop(0.4, 'green');
-            mountain_gradient.addColorStop(0.2, 'yellow');
+        var mountain_gradient = altitude_ctx.createLinearGradient(0,150, 0, 750);
+            mountain_gradient.addColorStop(1, 'blue');
+            mountain_gradient.addColorStop(0.7, 'cyan');
+            mountain_gradient.addColorStop(0.5, 'green');
+            mountain_gradient.addColorStop(0.10, 'yellow');
             mountain_gradient.addColorStop(0, 'red');
 
         //CHART DECLARATION AND DEFINITIONS
