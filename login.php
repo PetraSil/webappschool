@@ -196,6 +196,8 @@ include "session.php";
         </section>
     </main>
 
+    </div>
+
     <div id="burger">
         <div class="menu_line1 menu_lines" id="line1"></div>
         <div class="menu_line2 menu_lines" id="line2"></div>
@@ -208,7 +210,7 @@ include "session.php";
         <h2 class="overlay_menu_h2" id="overlay_menu_log">LOG IN</h2>
         <h2 class="overlay_menu_h2" id="overlay_menu_contact">CONTACT</h2>
     </nav>
-    
+
     <script src="login.js"></script>
 
 </body>

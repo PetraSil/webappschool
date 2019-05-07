@@ -27,7 +27,6 @@ if (($roww['username'] == $username_login) && ($compare_password == 1)) {
     }
 }
 
-
 /* REGISTER FORM */
 $date_of_birth_check = $_POST["register_age"]; 
 $date1 = new DateTime($date_of_birth_check);

@@ -1,7 +1,6 @@
 <?php
 include "loginphp.php";
 
-
 if ($date1 < $date2 && $date1 > $date4 && $password == $reenterpassword && $row2 < 1) {
     /*echo"<script type='text/javascript'>
         document.getElementById('register_overlay').style.display = 'none';
@@ -10,7 +9,6 @@ if ($date1 < $date2 && $date1 > $date4 && $password == $reenterpassword && $row2
     alert('Register succesful. You may now log in...bla bla');</script>";
     echo"<script type='text/javascript'>
     window.parent.location.href = 'login.php';</script>";
-     
 }
 
 if ($password != $reenterpassword) {        
