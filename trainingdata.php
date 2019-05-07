@@ -25,30 +25,6 @@ include 'xmlparser.php'
 <body onload="init();">
 
 
-
-<script>
-
-var ctx = document.getElementById('myChart').getContext('2d');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
-
-    // The data for our dataset
-    data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [{
-            label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45]
-        }]
-    },
-
-    // Configuration options go here
-    options: {}
-});
-
-    </script>
    
     <nav id="navbar_desktop">
         <ul>
@@ -117,25 +93,45 @@ var chart = new Chart(ctx, {
         <div id="data_bottom">
             <div class="data_section_wide" id="data1">
                 <div class="data_meta_section" id="map_meta1">
-                    <?echo "Average heart-rate: $averagehr bpm<br>";
-                    //echo "Average heart-rate from file is $avhrfromfile<br>";
-                    echo "Total distance $distanceArray[$qtyOfEmbryos] meters<br>";
-                    echo "Your average speed was $avspeed km/h<br>";?>
+                    <h2>CALENDAR</h2>
                 </div>
                 <div class="data_meta_section" id="map_meta2">
                     <div id="map"></div>
                 </div>
             </div>
-            <div class="data_section" id="data1">
-                <canvas id="myChart"></canvas>
+            <div class="data_section" id="graph1">
+                <canvas id="hrdata" width="100" height="100"></canvas>
             </div>
-            <div class="data_section" id="data2">
-                <div class="data_meta_section" id="data_meta5"><h2>CALENDAR</h2></div>
+            <div class="data_section" id="graph1">
+                <div class="data_meta_section" id="data_meta5">
+                    <?
+                    echo "<p>Average heart-rate: $averagehr bpm<br></p>";
+                    ?>
+                </div>
+            </div>
+     
+            <div class="data_section" id="graph2">
+                <div class="data_meta_section" id="graph1">
+                <?
+                echo "<p>Your average speed was $avspeed km/h<br></p>";
+                ?>
+                </div>
+            </div>
+            <div class="data_section" id="graph2">
+                    <canvas id="speedChart" width="100" height="100"></canvas>
+            </div>
+
+            <div class="data_section" id="graph3">
+                    <canvas id="altitudeChart" width="100" height="100"></canvas>
+            </div>
+            <div class="data_section" id="graph3">
+                <div class="data_meta_section" id="graph1">
+                <? 
+                echo "Total distance $distanceArray[$qtyOfEmbryos] meters<br>"
+                ?>
+                </div>
             </div>
             
-            <div class="data_section_wide" id="data1">
-                <div class="data_meta_section" id="data_meta3"><h2>HEARTRATE DATA</h2></div>
-            </div>
         </div>
        
     </section>
@@ -221,8 +217,229 @@ var chart = new Chart(ctx, {
     </section>-->
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
-    <script src="data.js"></script>
-    <script src="map.js"> </script>
+    <script>
+        var yHeartRate = <?php echo json_encode($hrArray); ?>;
+        var ySpeed = <?php echo json_encode($speedArray); ?>;
+        var yAltitude = <?php echo json_encode($altitudeArray); ?>;
+        var xTimepoints = <?php echo json_encode($timeformat); ?>;
+        
+
+        var maxHRValue= Math.max.apply(null, yHeartRate)+10
+        var minHRValue= Math.min.apply(null, yHeartRate)-10
+        var maxAltValue= Math.max.apply(null, yAltitude)+5
+        var maxSpeedValue= Math.max.apply(null, ySpeed)+5
+
+        //window.alert(yHeartRate);
+
+        /*Chart.Legend.prototype.afterFit = function() {
+        this.height = this.height +100;
+        };*/
+        
+        Chart.defaults.global.animation.duration = 2000;
+        Chart.defaults.global.defaultFontSize = 30; 
+
+        var hr_ctx = document.getElementById("hrdata").getContext("2d");
+        
+        //GRADIENT COLOR DEFINITIONS
+        var purple_orange_gradient = hr_ctx.createLinearGradient(0, 0, 0, 500);
+        purple_orange_gradient.addColorStop(0, 'orange');
+        purple_orange_gradient.addColorStop(1, 'purple');
+
+        var hrChart =new Chart(hr_ctx, {
+            type: 'line',
+            data: {
+                labels: xTimepoints,
+                datasets: [{
+                        label: "Heart rate",
+                        data: yHeartRate,
+                        fill: false,
+                        backgroundColor: purple_orange_gradient ,
+                        borderColor: purple_orange_gradient,
+                        borderCapStyle: 'butt',
+                        pointRadius: 0.5,
+                        hoverRadius: 4,
+                        borderWidth:1
+                        
+                    }]
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    padding:0,
+                    fontSize:5
+                },
+                hover: {
+                    mode: 'label'
+                },
+                scales: {
+                    xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Time',
+                                fontSize:15
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                                fontSize: 10,
+                            }
+                        }],
+                    yAxes: [{
+                            display: true,
+                            ticks: {
+                                beginAtZero: true,
+                                fontSize: 10,
+                                min: minHRValue - 10,
+                            }
+                        }]
+                },
+                title: {
+                    display: true,
+                    text: 'HEART RATE (BPM)',
+                    fontSize:20
+                }
+            }
+        });
+
+
+        var speed_ctx = document.getElementById("speedChart").getContext("2d");
+
+        //GRADIENT COLOR DEFINITIONS
+        var speedGradient = speed_ctx.createLinearGradient(50, 0, 100, 700);
+            speedGradient.addColorStop(1, 'green');
+            speedGradient.addColorStop(0.66, 'cyan');
+            speedGradient.addColorStop(0.33, 'blue');
+            speedGradient.addColorStop(0, 'purple');
+
+        //CHART DECLARATION AND  DEFINITIONS
+        var speedChart= new Chart(speed_ctx, {
+            type: 'line',
+            data: {
+                labels: xTimepoints,
+                datasets: [{
+                        label: "Speed",
+                        data: ySpeed,
+                        fill: true,
+                        backgroundColor: speedGradient,
+                        borderColor: speedGradient,
+                        borderCapStyle: 'butt',
+                        pointRadius: 0.5,
+                        hoverRadius: 4,
+                        borderWidth:0.5
+                        
+                    }]
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    padding:0,
+                    fontSize:5
+                },
+                hover: {
+                    mode: 'label'
+                },
+                scales: {
+                    xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Time',
+                                fontSize:15
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                                fontSize: 10,
+                            }
+                        }],
+                    yAxes: [{
+                            display: true,
+                            ticks: {
+                                beginAtZero: true,
+                                steps: 10,
+                                stepValue: 5,
+                                fontSize: 10
+                            }
+                        }]
+                },
+                title: {
+                    display: true,
+                    text: 'Speed (km/h)',
+                    fontSize:20
+                }
+            }
+        });
+
+        
+        var altitude_ctx = document.getElementById("altitudeChart").getContext("2d");
+
+        //GRADIENT COLOR DEFINITIONS
+        var mountain_gradient = altitude_ctx.createLinearGradient(0, 0, 0, 800);
+            mountain_gradient.addColorStop(1, 'magenta');
+            mountain_gradient.addColorStop(0.8, 'blue');
+            mountain_gradient.addColorStop(0.6, 'cyan');
+            mountain_gradient.addColorStop(0.4, 'green');
+            mountain_gradient.addColorStop(0.2, 'yellow');
+            mountain_gradient.addColorStop(0, 'red');
+
+        //CHART DECLARATION AND DEFINITIONS
+        var altitudeChart = new Chart(altitude_ctx,  {
+            type: 'line',
+            data: {
+                labels: xTimepoints,
+                datasets: [{
+                        label: "Altitude (m)",
+                        data: yAltitude,
+                        fill: true,
+                        backgroundColor: mountain_gradient,
+                        borderColor: mountain_gradient,
+                        borderCapStyle: 'butt',
+                        pointRadius: 1,
+                        hoverRadius: 4,
+                        borderWidth: 1.5
+                        
+                    }]
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    padding:0,
+                    fontSize:5
+                },
+                hover: {
+                    mode: 'label'
+                },
+                scales: {
+                    xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Time',
+                                fontSize:15
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                                fontSize: 10,
+                            }
+                        }],
+                    yAxes: [{
+                            display: true,
+                            ticks: {
+                                beginAtZero: true,
+                                fontSize: 10
+                            }
+                        }]
+                },
+                title: {
+                    display: true,
+                    text: 'Altitude (m)',
+                    fontSize:20
+                }
+            }
+        });
+
+
+    </script>
+
     
 
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>  
@@ -231,6 +448,9 @@ var chart = new Chart(ctx, {
     <!-- OpenStreetMap OpenLayers layers.-->
     <script src="https://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
     <!--canva.js gaphs-->
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>    
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="data.js"></script>
+    <script src="map.js"> </script>
+   
 </body>
 </html>

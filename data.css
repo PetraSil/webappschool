@@ -225,12 +225,16 @@ li:hover {
 
 #map_meta1 {
     width:35%;
-    border: solid 2px yellow;
 }
 
 #map_meta2 {
     width:65%;
 }
+
+#graph1,#graph2,#graph3{
+    height:30rem;
+}
+
 
 /* SITEMAP OVERLAY */
 #site_map_overlay {
@@ -707,8 +711,8 @@ span:hover .fas {
 }
 
 canvas {
-    width: 40rem !important;
-    height: 40rem !important;
+    width: 30rem !important;
+    height: 30rem !important;
     margin-bottom: 5rem;
 }
 
