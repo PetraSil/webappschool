@@ -1,92 +1,8 @@
-<!-- ALL PHP WILL BE IN SEPERATE FILES EVENTUALLY -->
-
 <?php
-session_start();
-if(isset($_POST["user_name"]))
-$_SESSION["session_username"] = $_POST["user_name"];
-
-include_once "db.php";
-/* CONNECT TO SERVER */
-if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === "off") {
-    $location = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-    header('HTTP/1.1 301 Moved Permanently');
-    header('Location: ' . $location);
-    exit;
-
-/*SESSION WORK */
-}
-
-/*SESSION NAME TEST */
-
-/* LOGIN FORM PHP */
-
-$username_login = $_POST["user_name"];
-$password_login = $_POST["user_password"]; 
-  /*------------------------------------------------------------*/
-  $sql_check_username = "SELECT * FROM user_profile WHERE username = '$username_login';"; 
-  $result = mysqli_query($connection, $sql_check_username); 
-  $roww = mysqli_fetch_assoc($result);
-  $pass_form = $_POST["user_password"];
-  $password_hashed_from_database = $roww['hashed_password'];
-  $compare_password = password_verify($pass_form, $password_hashed_from_database); 
-  if (($roww['username'] == $username_login) && ($compare_password == 1)) {  
-      if(!headers_sent()) {  
-                echo"<script type='text/javascript'>
-                window.parent.location.href = 'dashboard.php';</script>";
-      }
-    }
-
-    /* REGISTER FORM */
-                        $date_of_birth_check = $_POST["register_age"]; 
-                        $date1 = new DateTime($date_of_birth_check);
-                        $date2 = new DateTime("today");
-                        $date3 = new DateTime("today");
-                        $date4 = $date3->modify("-124 years");
-
-                        //IF checking the validity of the date of the birth
-                        if ($date1 < $date2 && $date1 > $date4) {
-                            
-                            $username = mysqli_real_escape_string($connection, $_POST["register_name"]);
-                            $password = mysqli_real_escape_string($connection, $_POST["register_password"]);
-                            $email = mysqli_real_escape_string($connection, $_POST["register_email"]);
-                            $date_of_birth = mysqli_real_escape_string($connection, $_POST["register_age"]);
-                            $weight = mysqli_real_escape_string($connection, $_POST["register_weight"]);
-                            $height = mysqli_real_escape_string($connection, $_POST["register_height"]);
-                            $reenterpassword = mysqli_real_escape_string($connection, $_POST["register_password_re"]);
-                                /*At first check if password == reentered password */
-                                /*then check if a username already exist */
-                            if ($password == $reenterpassword) {
-                                
-                                $sql_check_username = "SELECT * FROM user_profile WHERE username = '$username';"; /*users;";  ensimmäinen ; on SQLlle ja toinen ; on PHPlle */
-                                $result2 = mysqli_query($connection, $sql_check_username); /*talletetaan $result2:een haun tuloksena löytyneet rivit */
-                                $row2 =mysqli_num_rows($result2); /*$row2:een tallentuu haun tulosen rivien lukumäärä */
-                                
-                                if ($row2 > 0) {
-                                }
-                                /* Hashing */
-                                else { 
-                                    $inputtohashing = $_POST["register_password"];
-                                    $hashed_password = password_hash($inputtohashing, PASSWORD_DEFAULT);
-                                    /*Verify tämä väli kuuluu login kohtaan */
-                                    $compare_password = password_verify($inputtohashing, $hashed_password); /*password comparison just for checking */
-                                    /*Verify tämä väli kuuluu login kohtaan */
-                     /* echo "Password and re-entered password are same"; */
-                    /*-SYÖTETÄÄN REKISTERÖINTIKENTÄN TIEDOT TIETOKANTAAN-----------*/
-                    $sql_insert = "INSERT INTO user_profile (username, password, email, date_of_birth, weight, height, hashed_password ) VALUES ('$username', '$password', '$email', '$date_of_birth', '$weight', '$height', '$hashed_password');";
-                    $result = mysqli_query($connection, $sql_insert);
-                  
-                     /*------------------------------------------------------------*/
-                    $sql = "SELECT * FROM user_profile WHERE username = '$username';"; 
-                    $result1 = mysqli_query($connection, $sql);
-                    $roww = mysqli_fetch_assoc($result1);
-                        
-                  } /* usernamen vertaamisen if-lauseen else päättyy */
-                } /* salasanan vertaamisen if-lause päättyy tähän ja sen else alkaa */
-                    else {
-                        }
-                } 
-                    else {
-                        }
+include "db.php";
+include "alerts.php";
+include "loginphp.php";
+include "session.php";
 ?>
 
 <!DOCTYPE html>
@@ -161,9 +77,13 @@ $password_login = $_POST["user_password"];
 
         </header>
 
-        <div id="login_alert">TEST</div>
-
         <section id="main_login_section_container">
+            <div id="login_alert">
+                <h2>SOMETHING WENT WRONG</h2>
+                <hr>
+                <p>Please check your login credentials and try again. If the problems persists, please contact the site support.</p>
+                <h4 id="close_login_alert">CLOSE</h4>
+            </div>
             <div id="main_login_section">
                 <div id="login_section_left">
                     <div id="logo_small"></div>
@@ -175,15 +95,15 @@ $password_login = $_POST["user_password"];
                     <iframe name="target" id="target" frameborder="0"></iframe>
                     <form method="post" action="" target="target" autocomplete="off">
                         <label for="user_name"><i class="fas fa-user-circle"></i>USERNAME</label>
-                        <input id="user_name" type="text" name="user_name" placeholder="Username" required>
+                        <input id="user_name" type="text" name="user_name" placeholder="Username">
                         <label for="user_password"><i class="fas fa-unlock-alt"></i>PASSWORD</label>
-                        <input id="user_password" type="password" name="user_password" placeholder="Password" required>
+                        <input id="user_password" type="password" name="user_password" placeholder="Password">
                         <br>
                         <button type="submit" id="login_button">SIGN IN</button>
                         <button type="reset" id="reset_login">RESET</button>
                     </form>
                     <footer id="login_section_footer">
-                        <h4 id="register_open"><span>Register</span></h4>
+                        <h4 id="register_open" onclick="toLogin(this.id)"><span>Register</span></h4>
                         <h4 id="help_h4"><span>Help</span></h4>
                     </footer>
 
@@ -194,7 +114,6 @@ $password_login = $_POST["user_password"];
                         instructions given. New user registration is not in use yet It will be activated in the future.</p>
                     <button id="alert_close_button">CLOSE ALERT</button>
                 </div>
-                <!--register under work-->
                 <section id="help_overlay">
                     <div class="extra_container">
                         <h2 class="overlay_h2">LOGIN HELP</h2>
@@ -237,7 +156,7 @@ $password_login = $_POST["user_password"];
                 <p class="footer_p">Media</p>
             </div>
         </footer>
-        <section class="general_overlay">
+        <section class="general_overlay" id="legal_jargon">
             <h2 class="overlay_h2">LEGAL JARGON</h2>
             <p>The obligations in this license document would apply, with the Copyright Holder. This license includes the Program (or a work based on the Program. Patents mean patent claims licensable by such Contributor that the recipients all the rights and licenses granted hereunder, each Recipient hereby assumes sole responsibility to secure any other right or remedy of any work of authorship, whether in tort (including negligence), contract, or otherwise, or (b) ownership of more than your cost of developing and maintaining multi-platform application software. For suppliers: In-depth testing increases customer satisfaction and keeps development and maintenance of standards-based products. For buyers: adequate conformance testing leads to reduced integration costs and reasonable attorneys' fees and expenses. The application of the Work. If you are welcome to redistribute it under the terms and conditions. You may aggregate the Package with respect to end users, business partners and the following in a wiki, for example, the production of a file containing Licensed Product, including Modifications made by or assigned to North Beat or to ask for permission.
                 <br><br>
@@ -252,8 +171,8 @@ $password_login = $_POST["user_password"];
             <h4 id="close_general_overlay">CLOSE</h4>
         </section>
         <section id="register_overlay">
-                <h2 class="overlay_h2">NEW USER REGISTRATION</h2>
-                <form method="post" action="" autocomplete="off">
+                <h2 class="overlay_h2" id="register_overlay_h2">NEW USER REGISTRATION</h2>
+                <form id="register_form" method="post" action="" target="target" autocomplete="off">
                     <label for="register_name"><i class="fas fa-user-circle"></i>USERNAME</label>
                     <input id="register_name" type="text" name="register_name" placeholder="Username" required>
                     <label for="register_password"><i class="fas fa-unlock-alt"></i>PASSWORD</label>
@@ -265,14 +184,14 @@ $password_login = $_POST["user_password"];
                     <label for="register_age"><i class="far fa-clock"></i> DATE OF BIRTH</label>
                     <input id="register_age" type="date" name="register_age" required>
                     <label for="register_weight"><i class="fas fa-weight"></i>WEIGHT (kg)</label>
-                    <input id="register_weight" type="number" step="0.1" min="0" max="500" name="register_weight" placeholder="80.0" required>
+                    <input id="register_weight" type="number" step="0.1" min="0" max="500" name="register_weight" placeholder="e.g. 80.0" required>
                     <label for="register_height"><i class="fas fa-ruler-vertical"></i>HEIGHT (cm)</label>
-                    <input id="register_height" type="number" step="0.1" min="0" max="300" name="register_height" placeholder="180.0" required>
+                    <input id="register_height" type="number" step="0.1" min="0" max="300" name="register_height" placeholder="e.g. 180.0" required>
                     <input id="permission_box" type="checkbox" required><span id="tos">I accept the terms of service.</span>
                     <br>
-                    <button type="submit" id="register_button">SUBMIT</button>
-                    <button type="reset" id="reset_register">RESET</button>
-                    <button type="button" id="register_close" onclick="toLogin(this.id)">CLOSE REGISTRATION</button>
+                    <button type="submit" id="register_button" class="register_buttons">SUBMIT</button>
+                    <button type="reset" id="reset_register" class="register_buttons">RESET</button>
+                    <button type="button" id="register_close" class="register_buttons" onclick="toLogin(this.id)">CLOSE REGISTRATION</button>
                 </form>
         </section>
     </main>

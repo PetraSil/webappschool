@@ -1,7 +1,5 @@
 <?php
-session_start();
-if(isset($_POST["user_name"]))
-$_SESSION["session_username"] = $_POST["user_name"];
+include "session.php";
 ?>
 
 <!DOCTYPE html>
@@ -165,25 +163,6 @@ $_SESSION["session_username"] = $_POST["user_name"];
         </p>
         <button type="button" id="alert_button">CLOSE</button>
     </div>
-<!--
-    <section class="data_overlay" id="data_overlay_calendar">
-            <h1 class="data_overlay_meta_h1">CALENDAR</h1>
-            <h2 class="data_overlay_meta_h2">
-                This section is a placeholder and under development. It represents an example of data and one of the presentation types used in the application, 
-                so the look and the feel of this section will most likely be changed for the final product. It shows a calendar protoype that will be connected to
-                the database. The user can create events for specific days and recieve alerts and notifications about them.<br>
-                <button type="button" id="close_data_overlay_calendar">RETURN</button>
-            </h2>
-    </section>
-
-    <section class="data_overlay" id="data_overlay_options">
-            <h1 class="data_overlay_meta_h1">OPTIONS</h1>
-            <h2 class="data_overlay_meta_h2">
-                This section is a placeholder and under development. It represents an example of data and one of the presentation types used in the application, 
-                so the look and the feel of this section will most likely be changed for the final product.<br>
-                <button type="button" id="close_data_overlay_options">RETURN</button>
-            </h2>
-    </section>-->
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
     <script src="data.js"></script>
