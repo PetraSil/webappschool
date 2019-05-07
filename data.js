@@ -26,9 +26,10 @@ const toHome = () => {
     window.location.href = "login.php";
 };
 
-document.getElementById("nav_home").addEventListener("click", toHome);
+document.getElementById("nav_logout").addEventListener("click", toHome);
 document.getElementById("overlay_menu_home").addEventListener("click", toHome);
 document.getElementById("menu_home").addEventListener("click", toHome);
+document.getElementById("logo_large").addEventListener("click", toHome);
 
 const toDashboard = () => {
     window.location.href = "dashboard.php";
@@ -392,6 +393,5 @@ document.getElementById("data_meta7").addEventListener("click", alertHandle);
 document.getElementById("data_meta5").addEventListener("click", alertHandle);
 document.getElementById("menu_application").addEventListener("click", alertHandle);
 document.getElementById("menu_personal").addEventListener("click", alertHandle);
-document.getElementById("nav_logout").addEventListener("click", alertHandle);
 document.getElementById("overlay_menu_logout").addEventListener("click", alertHandle);
 

@@ -48,6 +48,10 @@ a {
     }
 }
 
+#nav_logout, #nav_site {
+    background-color: black;
+    color: white;
+}
 
 .navbar_background {
     background-color: rgba(255, 255, 255, 0.95) !important;
@@ -274,7 +278,13 @@ li:hover {
         background-size: cover;
         background-position: center center;
         z-index: 6;
+        cursor: pointer;
+        transition: all 0.2s linear;
     }
+}
+
+#logo_large:hover {
+    transform: scale(1.01);
 }
 
 @media (max-width: 800px) {

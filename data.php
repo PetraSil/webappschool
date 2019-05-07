@@ -26,14 +26,11 @@ include "session.php";
             <li id="nav_contact">
                 <h5>Contact</h5>
             </li>
-            <li id="nav_home">
-                <h5>Home</h5>
-            </li>
             <li id="nav_logout">
                 <h5>Logout</h5>
             </li>
             <li id="nav_site">
-                <h5 id="nav_site_h5">Menu</h5>
+                <h5 id="nav_site_h5">Sitemap</h5>
             </li>
         </ul>
     </nav>
