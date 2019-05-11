@@ -1,2 +1,4 @@
 # webappschool
-School project - Sports app
+School project - Sports application
+
+Metropolia University of Applied Sciences 2019
