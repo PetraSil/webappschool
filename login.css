@@ -125,7 +125,12 @@ li:hover {
         background-position: center center;
         z-index: 6;
         cursor: pointer;
+        transition: all 0.2s linear;
     }
+}
+
+#logo_large:hover {
+    transform: scale(1.01);
 }
 
 @media (max-width: 800px) {

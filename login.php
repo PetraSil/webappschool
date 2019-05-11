@@ -176,7 +176,9 @@ include "session.php";
                     <label for="register_name"><i class="fas fa-user-circle"></i>USERNAME</label>
                     <input id="register_name" type="text" name="register_name" placeholder="Username" required>
                     <label for="register_password"><i class="fas fa-unlock-alt"></i>PASSWORD</label>
-                    <input id="register_password" type="password" name="register_password" placeholder="Password" required>
+                    <input id="register_password" type="password" name="register_password" placeholder="Password" 
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
+                    title="Password must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters." required>
                     <label for="register_password_re"><i class="fas fa-unlock-alt"></i>RE-ENTER PASSWORD</label>
                     <input id="register_password_re" type="password" name="register_password_re" placeholder="Password" required>
                     <label for="register_email"><i class="fas fa-envelope"></i>EMAIL ADDRESS</label>

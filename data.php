@@ -77,24 +77,24 @@ include "session.php";
         </div>
     </nav>
 
-    <section id="data_main_container">
-        <div id="data_top"><h1>USER DATA</h1></div>
-        <div id="data_bottom">
-            <div class="data_section" id="data1">
-                <div class="data_meta_section" id="data_meta1"></div>
-                <div class="data_meta_section" id="data_meta2"><h2>TRAINING TIME</h2></div>
+    <section id="music_main_container">
+        <div id="music_top"><h1>USER DATA</h1></div>
+        <div id="music_bottom">
+            <div class="music_section" id="music1">
+                <div class="music_meta_section" id="music_meta1"></div>
+                <div class="music_meta_section" id="data_meta2"><h2>TRAINING TIME</h2></div>
             </div>
-            <div class="data_section" id="data2">
-                <div class="data_meta_section" id="data_meta5"><h2>CALENDAR</h2></div>
-                <div class="data_meta_section" id="data_meta6"></div>
+            <div class="music_section" id="music2">
+                <div class="music_meta_section" id="data_meta5"><h2>CALENDAR</h2></div>
+                <div class="music_meta_section" id="music_meta6"></div>
             </div>
-            <div class="data_section" id="data1">
-                <div class="data_meta_section" id="data_meta4"></div>
-                <div class="data_meta_section" id="data_meta3"><h2>HEARTRATE DATA</h2></div>
+            <div class="music_section" id="music1">
+                <div class="music_meta_section" id="music_meta4"></div>
+                <div class="music_meta_section" id="data_meta3"><h2>HEARTRATE DATA</h2></div>
             </div>
-            <div class="data_section" id="data2">
-                <div class="data_meta_section" id="data_meta7"><h2>VIEW OPTIONS</h2></div>
-                <div class="data_meta_section" id="data_meta8"></div>
+            <div class="music_section" id="music2">
+                <div class="music_meta_section" id="data_meta7"><h2>VIEW OPTIONS</h2></div>
+                <div class="music_meta_section" id="music_meta8"></div>
             </div>
         </div>
        

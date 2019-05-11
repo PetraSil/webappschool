@@ -56,6 +56,13 @@ for (var i = 0; i < action_container.length; i++) {
     action_container[i].addEventListener('click', toLogin);
 }
 
+const toHome = () => {
+    window.location.href = "login.php";
+};
+
+document.getElementById("logo_large").addEventListener("click", toHome);
+
+
 
 const toAbout = () => {
     document.getElementById("main_header").scrollIntoView({

@@ -50,7 +50,7 @@ document.getElementById("menu_data").addEventListener("click", toData);
 document.getElementById("overlay_menu_data").addEventListener("click", toData);
 
 const toHeart = () => {
-    window.location.href = "trainingdata.php";
+    window.location.href = "graphingxmlexample.php";
 }
 
 document.getElementById("data_meta3").addEventListener("click", toHeart);
@@ -182,7 +182,7 @@ for(let i = 0; i < footer_p_overlay.length; i++) {
 };
 
 /*PLACEHOLDER CHART */
-/*Chart.Legend.prototype.afterFit = function() {
+Chart.Legend.prototype.afterFit = function() {
     this.height = this.height + 100;
 };
 let placeholder_array = [680, 790, 770, 990, 1090, 1230, 1280, 1010, 880, 550, 1340, 1220];
@@ -290,7 +290,6 @@ const myChart = new Chart(ctx, {
         responsive: true
     }
 });
-*/
 
 
 /* DATA OVERLAYS */
