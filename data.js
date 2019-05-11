@@ -27,9 +27,9 @@ const toHome = () => {
 };
 
 document.getElementById("nav_logout").addEventListener("click", toHome);
-document.getElementById("overlay_menu_home").addEventListener("click", toHome);
 document.getElementById("menu_home").addEventListener("click", toHome);
 document.getElementById("logo_large").addEventListener("click", toHome);
+document.getElementById("overlay_menu_logout").addEventListener("click", toHome);
 
 const toDashboard = () => {
     window.location.href = "dashboard.php";
@@ -67,7 +67,6 @@ const scrollBar = () => {
 };
 
 window.addEventListener("scroll", scrollBar);
-
 
 // Mobile menu handling
 let menu_toggle = false;
@@ -152,7 +151,6 @@ window.addEventListener("mouseup", function (event) {
         sitemap = false;
     }
 });
-
 
 //GENERAL OVERLAY CONTROLS
 let generalOverlay = false;
@@ -291,7 +289,6 @@ const myChart = new Chart(ctx, {
     }
 });
 
-
 /* DATA OVERLAYS */
 let overlay_chart = false;
 
@@ -320,61 +317,6 @@ const dataOverlayHandle = () => {
 document.getElementById("data_meta2").addEventListener("click", dataOverlayHandle);
 document.getElementById("close_data_overlay_charts").addEventListener("click", dataOverlayHandle);
 
-/*
-let overlay_calendar = false;
-
-const calendarOverlayHandle = () => {
-    if(!overlay_calendar) {
-        document.getElementById("data_overlay_calendar").style.width = "100%";
-        document.getElementById("data_overlay_calendar").style.display = "flex";
-        document.getElementById("main_footer").style.display = "none";
-        document.getElementById("music_main_container").style.display = "none";
-        setTimeout(function () {
-            document.getElementById("data_overlay_calendar").style.opacity = "0.99";
-        }, 200);
-        overlay_calendar = true;
-    } else {
-        document.getElementById("data_overlay_calendar").style.opacity = "0";
-        setTimeout(function () {
-            document.getElementById("data_overlay_calendar").style.width = "0";
-            document.getElementById("data_overlay_calendar").style.display = "none";
-        }, 200);
-        document.getElementById("main_footer").style.display = "flex";
-        document.getElementById("music_main_container").style.display = "block";
-        overlay_calendar = false;
-    }
-};
-
-document.getElementById("data_meta5").addEventListener("click", calendarOverlayHandle);
-document.getElementById("close_data_overlay_calendar").addEventListener("click", calendarOverlayHandle);
-
-let overlay_options = false;
-
-const optionsOverlayHandle = () => {
-    if(!overlay_options) {
-        document.getElementById("data_overlay_options").style.width = "100%";
-        document.getElementById("data_overlay_options").style.display = "flex";
-        document.getElementById("main_footer").style.display = "none";
-        document.getElementById("music_main_container").style.display = "none";
-        setTimeout(function () {
-            document.getElementById("data_overlay_options").style.opacity = "0.99";
-        }, 200);
-        overlay_options = true;
-    } else {
-        document.getElementById("data_overlay_options").style.opacity = "0";
-        setTimeout(function () {
-            document.getElementById("data_overlay_options").style.width = "0";
-            document.getElementById("data_overlay_options").style.display = "none";
-        }, 200);
-        document.getElementById("main_footer").style.display = "flex";
-        document.getElementById("music_main_container").style.display = "block";
-        overlay_options = false;
-    }
-};
-
-document.getElementById("data_meta7").addEventListener("click", optionsOverlayHandle);
-document.getElementById("close_data_overlay_options").addEventListener("click", optionsOverlayHandle);*/
-
 /*ALERT*/
 let alert = false;
 
@@ -393,5 +335,4 @@ document.getElementById("data_meta7").addEventListener("click", alertHandle);
 document.getElementById("data_meta5").addEventListener("click", alertHandle);
 document.getElementById("menu_application").addEventListener("click", alertHandle);
 document.getElementById("menu_personal").addEventListener("click", alertHandle);
-document.getElementById("overlay_menu_logout").addEventListener("click", alertHandle);
 

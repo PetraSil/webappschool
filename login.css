@@ -1107,6 +1107,7 @@ span:hover .fas {
 #target, iframe {
     height: 0;
     width: 0;
+    border: 0;
 }
 
 /* LOGIN ALERT */

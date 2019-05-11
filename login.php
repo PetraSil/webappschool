@@ -92,8 +92,8 @@ include "session.php";
                     <header id="login_section_header">
                         <h2 class="north_beat_title">NORTH BEAT</h2>
                     </header>
-                    <iframe name="target" id="target" frameborder="0"></iframe>
-                    <form method="post" action="" target="target" autocomplete="off">
+                    <iframe name="target" id="target"></iframe>
+                    <form method="post" target="target" autocomplete="off">
                         <label for="user_name"><i class="fas fa-user-circle"></i>USERNAME</label>
                         <input id="user_name" type="text" name="user_name" placeholder="Username">
                         <label for="user_password"><i class="fas fa-unlock-alt"></i>PASSWORD</label>
@@ -172,7 +172,7 @@ include "session.php";
         </section>
         <section id="register_overlay">
                 <h2 class="overlay_h2" id="register_overlay_h2">NEW USER REGISTRATION</h2>
-                <form id="register_form" method="post" action="" target="target" autocomplete="off">
+                <form id="register_form" method="post" target="target" autocomplete="off">
                     <label for="register_name"><i class="fas fa-user-circle"></i>USERNAME</label>
                     <input id="register_name" type="text" name="register_name" placeholder="Username" required>
                     <label for="register_password"><i class="fas fa-unlock-alt"></i>PASSWORD</label>
@@ -197,8 +197,6 @@ include "session.php";
                 </form>
         </section>
     </main>
-
-    </div>
 
     <div id="burger">
         <div class="menu_line1 menu_lines" id="line1"></div>

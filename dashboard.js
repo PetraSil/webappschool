@@ -47,8 +47,11 @@ const toHome = () => {
     window.location.href = "login.php";
 };
 
-document.getElementById("nav_home").addEventListener("click", toHome);
+document.getElementById("nav_logout").addEventListener("click", toHome);
 document.getElementById("menu_home").addEventListener("click", toHome);
+document.getElementById("logo_large").addEventListener("click", toHome);
+document.getElementById("overlay_menu_logout").addEventListener("click", toHome);
+
 
 const toMusic = () => {
     window.location.href = "music.php";
@@ -102,7 +105,6 @@ const menuAction = () => {
 
 document.querySelector("#burger").addEventListener("click", menuAction);
 document.querySelector("#overlay_menu_dashboard").addEventListener("click", toDashboard);
-document.querySelector("#overlay_menu_home").addEventListener("click", toHome);
 document.querySelector("#overlay_menu_contact").addEventListener("click", toContact);
 const overlay_h2 = document.querySelectorAll(".overlay_menu_h2");
 
@@ -219,5 +221,4 @@ document.getElementById("dashboard_profile").addEventListener("click", alertHand
 document.getElementById("menu_application").addEventListener("click", alertHandle);
 document.getElementById("menu_personal").addEventListener("click", alertHandle);
 document.getElementById("nav_logout").addEventListener("click", alertHandle);
-document.getElementById("overlay_menu_logout").addEventListener("click", alertHandle);
 

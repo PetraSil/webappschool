@@ -26,14 +26,11 @@ include "session.php";
             <li id="nav_contact">
                 <h5>Contact</h5>
             </li>
-            <li id="nav_home">
-                <h5>Home</h5>
-            </li>
             <li id="nav_logout">
                 <h5>Logout</h5>
             </li>
             <li id="nav_site">
-                <h5 id="nav_site_h5">Menu</h5>
+                <h5 id="nav_site_h5">Sitemap</h5>
             </li>
         </ul>
     </nav>
@@ -49,7 +46,6 @@ include "session.php";
         <h2 class="overlay_menu_h2" id="overlay_menu_music">MUSIC</h2>
         <h2 class="overlay_menu_h2" id="overlay_menu_contact">CONTACT</h2>
         <h2 class="overlay_menu_h2" id="overlay_menu_site">SITEMAP</h2>
-        <h2 class="overlay_menu_h2" id="overlay_menu_home">HOME</h2>
         <h2 class="overlay_menu_h2" id="overlay_menu_logout">LOGOUT</h2>
     </nav>
 
@@ -83,19 +79,19 @@ include "session.php";
     <section id="music_main_container">
         <div id="music_top"><h1>USER MUSIC</h1></div>
         <div id="music_bottom">
-            <div class="music_section" id="music1">
+            <div class="music_section">
                 <div class="music_meta_section" id="music_meta1"></div>
                 <div class="music_meta_section" id="music_meta2"><h2>FAVOURITE SONGS</h2></div>
             </div>
-            <div class="music_section" id="music2">
+            <div class="music_section">
                 <div class="music_meta_section" id="music_meta5"><h2>PLAYLISTS</h2></div>
                 <div class="music_meta_section" id="music_meta6"></div>
             </div>
-            <div class="music_section" id="music1">
+            <div class="music_section">
                 <div class="music_meta_section" id="music_meta4"></div>
                 <div class="music_meta_section" id="music_meta3"><h2>CONNECT SPOTIFY</h2></div>
             </div>
-            <div class="music_section" id="music2">
+            <div class="music_section">
                 <div class="music_meta_section" id="music_meta7"><h2>VIEW OPTIONS</h2></div>
                 <div class="music_meta_section" id="music_meta8"></div>
             </div>
@@ -171,7 +167,7 @@ include "session.php";
 
                     </form>
             
-                    <table id="additions_table" cellspacing="0">
+                    <table id="additions_table">
                         <thead>
                             <tr>
                                 <th>Song Author</th>
