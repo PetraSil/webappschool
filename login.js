@@ -253,7 +253,7 @@ const loginAlert = () => {
         document.getElementById("login_alert").style.display = "flex";
         setTimeout(function () {
             document.getElementById("login_alert").style.opacity = "1";
-        }, 100);
+        }, 300);
         loginTrue = true;
     } else {
         loginTrue = false;

@@ -52,7 +52,7 @@ if ($date1 < $date2 && $date1 > $date4) {
             $inputtohashing = $_POST["register_password"];
             $hashed_password = password_hash($inputtohashing, PASSWORD_DEFAULT);
             $compare_password = password_verify($inputtohashing, $hashed_password);
-            $sql_insert = "INSERT INTO user_profile (username, password, email, date_of_birth, weight, height, hashed_password ) VALUES ('$username', '$password', '$email', '$date_of_birth', '$weight', '$height', '$hashed_password');";
+            $sql_insert = "INSERT INTO user_profile (username, email, date_of_birth, weight, height, hashed_password ) VALUES ('$username', '$email', '$date_of_birth', '$weight', '$height', '$hashed_password');";
             $result = mysqli_query($connection, $sql_insert);
         }
     }              
