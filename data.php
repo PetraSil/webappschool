@@ -1,5 +1,7 @@
 <?php
-include "session.php";
+session_start();
+if(isset($_POST["user_name"]))
+$_SESSION["session_username"] = $_POST["user_name"];
 ?>
 
 <!DOCTYPE html>
@@ -26,11 +28,14 @@ include "session.php";
             <li id="nav_contact">
                 <h5>Contact</h5>
             </li>
+            <li id="nav_home">
+                <h5>Home</h5>
+            </li>
             <li id="nav_logout">
                 <h5>Logout</h5>
             </li>
             <li id="nav_site">
-                <h5 id="nav_site_h5">Sitemap</h5>
+                <h5 id="nav_site_h5">Menu</h5>
             </li>
         </ul>
     </nav>
@@ -46,6 +51,7 @@ include "session.php";
         <h2 class="overlay_menu_h2" id="overlay_menu_data">DATA</h2>
         <h2 class="overlay_menu_h2" id="overlay_menu_contact">CONTACT</h2>
         <h2 class="overlay_menu_h2" id="overlay_menu_site">SITEMAP</h2>
+        <h2 class="overlay_menu_h2" id="overlay_menu_home">HOME</h2>
         <h2 class="overlay_menu_h2" id="overlay_menu_logout">LOGOUT</h2>
     </nav>
 
@@ -76,24 +82,24 @@ include "session.php";
         </div>
     </nav>
 
-    <section id="music_main_container">
-        <div id="music_top"><h1>USER DATA</h1></div>
-        <div id="music_bottom">
-            <div class="music_section">
-                <div class="music_meta_section" id="music_meta1"></div>
-                <div class="music_meta_section" id="data_meta2"><h2>TRAINING TIME</h2></div>
+    <section id="data_main_container">
+        <div id="data_top"><h1>USER DATA</h1></div>
+        <div id="data_bottom">
+            <div class="data_section" id="data1">
+                <div class="data_meta_section" id="data_meta1"></div>
+                <div class="data_meta_section" id="data_meta2"><h2>TRAINING TIME</h2></div>
             </div>
-            <div class="music_section">
-                <div class="music_meta_section" id="data_meta5"><h2>CALENDAR</h2></div>
-                <div class="music_meta_section" id="music_meta6"></div>
+            <div class="data_section" id="data2">
+                <div class="data_meta_section" id="data_meta5"><h2>CALENDAR</h2></div>
+                <div class="data_meta_section" id="data_meta6"></div>
             </div>
-            <div class="music_section">
-                <div class="music_meta_section" id="music_meta4"></div>
-                <div class="music_meta_section" id="data_meta3"><h2>HEARTRATE DATA</h2></div>
+            <div class="data_section" id="data1">
+                <div class="data_meta_section" id="data_meta4"></div>
+                <div class="data_meta_section" id="data_meta3"><h2>HEARTRATE DATA</h2></div>
             </div>
-            <div class="music_section">
-                <div class="music_meta_section" id="data_meta7"><h2>VIEW OPTIONS</h2></div>
-                <div class="music_meta_section" id="music_meta8"></div>
+            <div class="data_section" id="data2">
+                <div class="data_meta_section" id="data_meta7"><h2>VIEW OPTIONS</h2></div>
+                <div class="data_meta_section" id="data_meta8"></div>
             </div>
         </div>
        
@@ -159,6 +165,25 @@ include "session.php";
         </p>
         <button type="button" id="alert_button">CLOSE</button>
     </div>
+<!--
+    <section class="data_overlay" id="data_overlay_calendar">
+            <h1 class="data_overlay_meta_h1">CALENDAR</h1>
+            <h2 class="data_overlay_meta_h2">
+                This section is a placeholder and under development. It represents an example of data and one of the presentation types used in the application, 
+                so the look and the feel of this section will most likely be changed for the final product. It shows a calendar protoype that will be connected to
+                the database. The user can create events for specific days and recieve alerts and notifications about them.<br>
+                <button type="button" id="close_data_overlay_calendar">RETURN</button>
+            </h2>
+    </section>
+
+    <section class="data_overlay" id="data_overlay_options">
+            <h1 class="data_overlay_meta_h1">OPTIONS</h1>
+            <h2 class="data_overlay_meta_h2">
+                This section is a placeholder and under development. It represents an example of data and one of the presentation types used in the application, 
+                so the look and the feel of this section will most likely be changed for the final product.<br>
+                <button type="button" id="close_data_overlay_options">RETURN</button>
+            </h2>
+    </section>-->
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
     <script src="data.js"></script>

@@ -27,7 +27,7 @@
           map.addLayer(layerMarkers);
 
           
-		  var gpxtrack="gpx/kalliotoolo.gpx";
+		  var gpxtrack="gpx/"+datafilename+".gpx";
 
 			// Add "shadow" to Layer with the GPX Track
 			var lgpxshadow = new OpenLayers.Layer.Vector("Display route", {

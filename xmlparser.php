@@ -1,6 +1,15 @@
 <?php
+        
+    if($_POST['submit']==0)      { $datafilename='lebuskilintuvaara'; }
+    else if($_POST['submit']==1) { $datafilename='kalliotoolo'; } 
+    else if($_POST['submit']==2) { $datafilename='sallanlenkki'; } 
+    else if($_POST['submit']==3) { $datafilename='tvmastolenkki'; }
+    
+    //a filename selector
+    $loader="xml/".$datafilename.".xml";
+
     //reading the xml file
-    $mytrackinfo = simplexml_load_file('xml/kalliotoolo.xml');
+    $mytrackinfo = simplexml_load_file($loader);
     //parsing the xml file
     $distance= $mytrackinfo->{'calendar-items'}[0]->exercise->result->distance;
     $avhrdata= $mytrackinfo->{'calendar-items'}[0]->exercise->result->samples->sample[0]->values;

@@ -93,7 +93,24 @@ include 'xmlparser.php'
         <div id="data_bottom">
             <div class="data_section_wide" id="data1">
                 <div class="data_meta_section" id="map_meta1">
-                    <h2>CALENDAR</h2>
+                    <div id="data_overlay_calendar"></div>
+                   
+                    <form action='' method='post'>
+                    <button class="widebtn" name='submit' value='0'>Running 17.4.2019</button>
+                    <button class="widebtn" name='submit' value='1'>Running 18.1.2019</button>
+                    <button class="widebtn" name='submit' value='2'>Walking 18.7.2018</button>
+                    <button class="widebtn" name='submit' value='3'>Running 17.7.2018</button>
+                    </form>
+
+                    <?php 
+                    if($_POST['submit']==0)      { $datafilename='lebuskilintuvaara'; }
+                    else if($_POST['submit']==1) { $datafilename='kalliotoolo'; } 
+                    else if($_POST['submit']==2) { $datafilename='sallanlenkki'; } 
+                    else if($_POST['submit']==3) { $datafilename='tvmastolenkki'; }
+                    ?>
+
+                    <script type="text/javascript">var datafilename = "<?= $datafilename ?>";</script>
+
                 </div>
                 <div class="data_meta_section" id="map_meta2">
                     <div id="map"></div>
@@ -202,28 +219,11 @@ include 'xmlparser.php'
         </p>
         <button type="button" id="alert_button">CLOSE</button>
     </div>
-<!--
-    <section class="data_overlay" id="data_overlay_calendar">
-            <h1 class="data_overlay_meta_h1">CALENDAR</h1>
-            <h2 class="data_overlay_meta_h2">
-                This section is a placeholder and under development. It represents an example of data and one of the presentation types used in the application, 
-                so the look and the feel of this section will most likely be changed for the final product. It shows a calendar protoype that will be connected to
-                the database. The user can create events for specific days and recieve alerts and notifications about them.<br>
-                <button type="button" id="close_data_overlay_calendar">RETURN</button>
-            </h2>
-    </section>
 
-    <section class="data_overlay" id="data_overlay_options">
-            <h1 class="data_overlay_meta_h1">OPTIONS</h1>
-            <h2 class="data_overlay_meta_h2">
-                This section is a placeholder and under development. It represents an example of data and one of the presentation types used in the application, 
-                so the look and the feel of this section will most likely be changed for the final product.<br>
-                <button type="button" id="close_data_overlay_options">RETURN</button>
-            </h2>
-    </section>-->
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
     <script>
+    
         var yHeartRate = <?php echo json_encode($hrArray); ?>;
         var ySpeed = <?php echo json_encode($speedArray); ?>;
         var yAltitude = <?php echo json_encode($altitudeArray); ?>;
